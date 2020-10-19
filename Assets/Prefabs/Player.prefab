@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972641937997102497}
   m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8110729951829362863}
@@ -560,15 +560,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2889591933533390973}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9828739ca4c0e4dd78448de4c7b7efee, type: 3}
+  m_Script: {fileID: 11500000, guid: 19037d6467e8f584f923a358621ebe04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lm:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 55
   camPivot: {fileID: 5620590618128820873}
   moveSpeed: 20
-  MaxMoveSpeed: 30
+  MaxMoveSpeed: 20
   distance: 5
   Sensitivity: 100
   yLimit: 45
