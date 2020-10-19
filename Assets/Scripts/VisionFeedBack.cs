@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VisionFeedBack
+public class VisionFeedBack : MonoBehaviour
 {
     public Material _material;
+
+    //borrar//
+    public GameObject prueba;
+    //------//
 
     //Faces//
     public Vector3[] _frontFace = new Vector3[4];
@@ -93,12 +97,31 @@ public class VisionFeedBack
         new Vector2(1,0)
     };
 
-    public VisionFeedBack(Vector3[] frontFace, Vector3[] backFace,Material material)
+    //descomentar//
+
+    //public VisionFeedBack(Vector3[] frontFace, Vector3[] backFace,Material material)
+    //{
+    //    _frontFace = frontFace;
+    //    _backFace = backFace;
+    //    _material = material;
+    //}
+
+    //------//
+
+    private void Awake()
     {
-        _frontFace = frontFace;
-        _backFace = backFace;
-        _material = material;
+            CreateObject(transform);
     }
+    //borrar//
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Destroy(prueba);
+            CreateObject(transform);
+        }
+    }
+    //------//
 
     private void setVertices()
     {
@@ -157,6 +180,10 @@ public class VisionFeedBack
         mFil.mesh.Optimize();
         mFil.mesh.RecalculateNormals();
         vision.transform.parent = pl;
+
+        //borrar//
+        prueba = vision;
+        //------//
 
     }
 }
