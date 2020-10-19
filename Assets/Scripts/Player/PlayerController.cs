@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     private CameraController _cc;
     private Dash _d;
     private Rigidbody _rb;
+    private Animator _anim;
 
     private float xSensitivity = 100.0f;
     private float ySensitivity = 100.0f;
@@ -31,9 +32,10 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        _anim = GetComponent<Animator>();
         _d = new Dash(lm, distance, transform, camPivot);
         _cc = new CameraController(camPivot, xSensitivity, ySensitivity, yMinLimit, yMaxLimit, xMinLimit, xMaxLimit, yRot, xRot, transform);
-
+        
 
         xSensitivity = Sensitivity;
         ySensitivity = Sensitivity;
@@ -41,6 +43,8 @@ public class PlayerController : MonoBehaviour
         yMaxLimit = yLimit;
         xMinLimit = -xLimit;
         xMaxLimit = xLimit;
+
+        //_anim.SetBool("Idle", true);
     }
 
     private void Update()
@@ -65,6 +69,7 @@ public class PlayerController : MonoBehaviour
             Vector3 move = (transform.right * Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime) + _rb.velocity;
             Vector3.ClampMagnitude(move, MaxMoveSpeed);
             _rb.velocity = Vector3.ClampMagnitude(move, MaxMoveSpeed);
+           
         }
 
         if (Input.GetAxis("Vertical") != 0)
