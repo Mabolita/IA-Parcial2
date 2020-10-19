@@ -10,7 +10,7 @@ public class Dash
 
     public float _distance;
 
-    public Dash(LayerMask lm, float distance, Transform player,Transform camPivot)
+    public Dash(LayerMask lm, float distance, Transform player, Transform camPivot)
     {
         _lm = lm;
         _distance = distance;
@@ -24,13 +24,13 @@ public class Dash
         Vector3 initialPos = _pl.position;
         if (Physics.Raycast(_pl.position, _pl.forward, out hit, _distance, _lm))
         {
-           _pl.position = hit.point - (_pl.forward / 2);
+            _pl.position = hit.point - (_pl.forward / 2);
         }
         else
         {
             _pl.position += _pl.forward * _distance;
         }
-        _camPivot.position = _pl.position;
+        _camPivot.position = new Vector3(_pl.position.x, _pl.position.y + 1.3F, _pl.position.z);
     }
 
 }
