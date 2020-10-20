@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4168745180893085431}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4, y: 0.65, z: 0}
-  m_LocalScale: {x: 0.1129, y: 0.3228, z: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.65, z: 0.35}
+  m_LocalScale: {x: 0.15, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 3822398808192425973}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!33 &254415618508668009
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 139274698210510981}
   - component: {fileID: 4144850285901776783}
   - component: {fileID: 2103072556323927000}
-  - component: {fileID: 7071457465853724845}
+  - component: {fileID: 8493716179512572243}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -197,7 +197,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6570612104201864206}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 5
@@ -216,9 +216,9 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &7071457465853724845
+--- !u!114 &8493716179512572243
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6570612104201864206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 505b468b10f8098419efb057478aa1b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 98b911874a6edb44484680fad22f9bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   minIdleTime: 3
@@ -235,8 +235,13 @@ MonoBehaviour:
   fireRate: 1.5
   viewAngle: 45
   player: {fileID: 0}
-  waypoints: []
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   currentWaypointTarget: 0
   playerInRange: 0
   playerInSight: 0
   sphereCollider: {fileID: 4144850285901776783}
+  speed: 5
