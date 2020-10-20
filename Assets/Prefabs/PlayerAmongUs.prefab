@@ -523,10 +523,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118423eaf1779ba41b435d4a9691c17b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalHit: {x: 0, y: 0, z: 0}
+  isOnSlope: 0
+  slopeLimit: 44
+  slideVelocity: 20
   lm:
     serializedVersion: 2
     m_Bits: 55
   camPivot: {fileID: 1294136118203366466}
+  floorsLayers:
+    serializedVersion: 2
+    m_Bits: 512
   maxCantJumps: 2
   jumpForce: 150
   moveSpeed: 20
