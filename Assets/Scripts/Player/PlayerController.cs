@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private Dash _d;
     private Rigidbody _rb;
     private Animator _anim;
+    private Vector3 normalHit;
 
     private float xSensitivity = 100.0f;
     private float ySensitivity = 100.0f;
@@ -18,18 +19,23 @@ public class PlayerController : MonoBehaviour
     private float yRot = 0.0f;
     private float xRot = 0.0f;
     private int jums;
+    private bool isOnSlope;
 
     public LayerMask lm;
     public Transform camPivot;
 
     public int maxCantJumps;
     public float jumpForce;
+    public float slopeLimit;
+    public float slideVelocity;
+    public float slideForceDown;
     public float moveSpeed;
     public float MaxMoveSpeed;
     public float distance;
     public float Sensitivity = 100.0f;
     public float yLimit = 45.0f;
     public float xLimit = 360.0f;
+
 
 
     private void Awake()
@@ -52,7 +58,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             _d.DashC();
@@ -75,7 +80,10 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
         {
-            _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
+            if (!isOnSlope)
+            {
+                _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
+            }
             _rb.freezeRotation = _rb;
         }
     }
@@ -117,9 +125,23 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.layer == 9 && jums != 0)
+        if (collision.gameObject.layer == 9)
         {
-            jums = 0;
+            if (jums != 0 && !isOnSlope)
+            {
+                jums = 0;
+            }
+            normalHit = collision.GetContact(0).normal;
+            SlideDown();
+        }
+    }
+
+    public void SlideDown()
+    {
+        isOnSlope = Vector3.Angle(Vector3.up, normalHit) >= slopeLimit;
+        if (isOnSlope)
+        {
+            _rb.velocity += new Vector3(normalHit.x * slideVelocity, -slideForceDown, normalHit.z * slideVelocity) * Time.deltaTime;
         }
     }
 }
