@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
     public float viewAngle = 45;
 
     public Transform bulletSpawn;
-    //public GameObject bulletPrefab;
+    public GameObject bulletPrefab;
 
     public PlayerController player;
 
@@ -33,7 +33,7 @@ public class EnemyAI : MonoBehaviour
         //animator = GetComponent<Animator>();
         sm = new StateMachine();
         sm.AddState(new EnemyPatrolState(sm, this));
-        //sm.AddState(new EnemyIdleState(sm, this));
+        sm.AddState(new EnemyIdleState(sm, this));
         sm.AddState(new EnemyShootState(sm, this));
         sm.SetState<EnemyPatrolState>();
     }

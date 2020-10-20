@@ -12,6 +12,7 @@ public class EnemyPatrolState : EnemyState
     public override void Awake()
     {
         base.Awake();
+        _enemy.speed = 5;
     }
 
     public override void Execute()
