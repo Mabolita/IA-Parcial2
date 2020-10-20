@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private Dash _d;
     private Rigidbody _rb;
     private Animator _anim;
+    private Vector3 normalHit;
 
     private float xSensitivity = 100.0f;
     private float ySensitivity = 100.0f;
@@ -18,20 +19,16 @@ public class PlayerController : MonoBehaviour
     private float yRot = 0.0f;
     private float xRot = 0.0f;
     private int jums;
-
-    public Vector3 normalHit;
-
-    public bool isOnSlope;
-    public float slopeLimit;
-    public float slideVelocity;
-    public float slideForceDown;
+    private bool isOnSlope;
 
     public LayerMask lm;
     public Transform camPivot;
-    public LayerMask floorsLayers;
 
     public int maxCantJumps;
     public float jumpForce;
+    public float slopeLimit;
+    public float slideVelocity;
+    public float slideForceDown;
     public float moveSpeed;
     public float MaxMoveSpeed;
     public float distance;
