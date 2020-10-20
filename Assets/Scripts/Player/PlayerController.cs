@@ -130,7 +130,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.layer == 9)
         {
-            if (jums != 0)
+            if (jums != 0 && !isOnSlope)
             {
                 jums = 0;
             }
