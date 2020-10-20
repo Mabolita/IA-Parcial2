@@ -12,8 +12,6 @@ public class EnemyPatrolState : EnemyState
     public override void Awake()
     {
         base.Awake();
-        //_enemy.animator.SetFloat("Speed", 2);
-        //_enemy.animator.SetFloat("AngularSpeed", 0);
     }
 
     public override void Execute()
@@ -21,7 +19,6 @@ public class EnemyPatrolState : EnemyState
         base.Execute();
 
         Transform target = _enemy.waypoints[_enemy.currentWaypointTarget];
-        //_enemy.transform.LookAt(target);
 
         _enemy.transform.forward = Vector3.Slerp(_enemy.transform.forward, target.position - _enemy.transform.position, 0.15f);
         _enemy.transform.position += _enemy.transform.forward * _enemy.speed * Time.deltaTime;
@@ -39,9 +36,9 @@ public class EnemyPatrolState : EnemyState
             }
         }
 
-        if (_enemy.playerInSight)
+        if (_enemy.playerInRange)
         {
-            //_sm.SetState<EnemyShootingState>();
+            _sm.SetState<EnemySeekState>();
         }
     }
 }

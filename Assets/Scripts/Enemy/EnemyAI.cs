@@ -9,7 +9,7 @@ public class EnemyAI : MonoBehaviour
     public float fireRate = 1.5f;
     public float viewAngle = 45;
 
-    //public Transform bulletSpawn;
+    public Transform bulletSpawn;
     //public GameObject bulletPrefab;
 
     public PlayerController player;
@@ -21,22 +21,20 @@ public class EnemyAI : MonoBehaviour
     public bool playerInSight = false;
 
     //public Animator animator;
-    public SphereCollider sphereCollider;
+    public SphereCollider visionRange;
 
     StateMachine sm;
 
     public float speed = 5;
 
-
-    // Start is called before the first frame update
     void Awake()
     {
-        sphereCollider = GetComponent<SphereCollider>();
+        visionRange = GetComponent<SphereCollider>();
         //animator = GetComponent<Animator>();
         sm = new StateMachine();
         sm.AddState(new EnemyPatrolState(sm, this));
         //sm.AddState(new EnemyIdleState(sm, this));
-        //sm.AddState(new EnemyShootingState(sm, this));
+        sm.AddState(new EnemyShootState(sm, this));
         sm.SetState<EnemyPatrolState>();
     }
 
@@ -48,24 +46,16 @@ public class EnemyAI : MonoBehaviour
             Vector3 dirToPlayer = (player.transform.position - transform.position).normalized;
             if (Vector3.Angle(transform.forward, dirToPlayer) < viewAngle)
             {
-                playerInSight = !Physics.Raycast(transform.position, dirToPlayer, sphereCollider.radius, 1 << 8);
+                playerInSight = !Physics.Raycast(transform.position, dirToPlayer, visionRange.radius, 1 << 8);
             }
         }
     }
-
-    //public void OnAnimatorShoot()
-    //{
-    //    GameObject bullet = Object.Instantiate(bulletPrefab);
-    //    bullet.transform.position = bulletSpawn.position;
-    //    bullet.transform.up = bulletSpawn.forward;
-    //}
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<PlayerController>())
         {
             player = other.GetComponent<PlayerController>();
-            //entró el player en vision
             playerInRange = true;
         }
     }
@@ -74,7 +64,6 @@ public class EnemyAI : MonoBehaviour
     {
         if (other.GetComponent<PlayerController>())
         {
-            //salió el player de vision
             playerInRange = false;
             playerInSight = false;
         }
