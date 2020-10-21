@@ -58,6 +58,12 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Vector3 check = GameManager.Instance.CurrentCheckPoint.position;
+            transform.position = check;
+        }
+
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             _d.DashC();

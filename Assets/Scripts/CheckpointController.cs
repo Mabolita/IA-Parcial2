@@ -6,15 +6,15 @@ public class CheckpointController : MonoBehaviour
 {
     [SerializeField] private GameObject _checkPointText;
 
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
         if (!_checkPointText.activeSelf) return;
 
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.layer == 8)
         {
             _checkPointText.SetActive(false);
             GameManager.Instance.SetNewCheckpoint(transform);
-
         }
     }
 }
