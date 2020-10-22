@@ -363,7 +363,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: No
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9ead668a06fdf4045a83424fb175f42a, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 1607345072527782844, guid: 9ead668a06fdf4045a83424fb175f42a,
     type: 2}
   m_fontSharedMaterials: []
@@ -519,7 +519,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Are you sure you want to elave the game?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9ead668a06fdf4045a83424fb175f42a, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 1607345072527782844, guid: 9ead668a06fdf4045a83424fb175f42a,
     type: 2}
   m_fontSharedMaterials: []
@@ -677,7 +677,7 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9ead668a06fdf4045a83424fb175f42a, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 1607345072527782844, guid: 9ead668a06fdf4045a83424fb175f42a,
     type: 2}
   m_fontSharedMaterials: []
@@ -1456,8 +1456,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Juegovich
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9ead668a06fdf4045a83424fb175f42a, type: 2}
-  m_sharedMaterial: {fileID: 1607345072527782844, guid: 9ead668a06fdf4045a83424fb175f42a,
+  m_fontAsset: {fileID: 11400000, guid: afa012d0cb9a5e8458a65be4c1323aca, type: 2}
+  m_sharedMaterial: {fileID: 1607345072527782844, guid: afa012d0cb9a5e8458a65be4c1323aca,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1483,7 +1483,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 75.95
+  m_fontSize: 33.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1845,8 +1845,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9ead668a06fdf4045a83424fb175f42a, type: 2}
-  m_sharedMaterial: {fileID: 1607345072527782844, guid: 9ead668a06fdf4045a83424fb175f42a,
+  m_fontAsset: {fileID: 11400000, guid: afa012d0cb9a5e8458a65be4c1323aca, type: 2}
+  m_sharedMaterial: {fileID: 1607345072527782844, guid: afa012d0cb9a5e8458a65be4c1323aca,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1872,12 +1872,12 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 24
+  m_fontSize: 19.45
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 10
+  m_fontSizeMax: 70
   m_fontStyle: 0
   m_textAlignment: 514
   m_characterSpacing: 0
@@ -2077,8 +2077,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9ead668a06fdf4045a83424fb175f42a, type: 2}
-  m_sharedMaterial: {fileID: 1607345072527782844, guid: 9ead668a06fdf4045a83424fb175f42a,
+  m_fontAsset: {fileID: 11400000, guid: afa012d0cb9a5e8458a65be4c1323aca, type: 2}
+  m_sharedMaterial: {fileID: 1607345072527782844, guid: afa012d0cb9a5e8458a65be4c1323aca,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2104,12 +2104,12 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 24
+  m_fontSize: 19.5
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 10
+  m_fontSizeMax: 70
   m_fontStyle: 0
   m_textAlignment: 514
   m_characterSpacing: 0
@@ -2484,8 +2484,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Credits
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9ead668a06fdf4045a83424fb175f42a, type: 2}
-  m_sharedMaterial: {fileID: 1607345072527782844, guid: 9ead668a06fdf4045a83424fb175f42a,
+  m_fontAsset: {fileID: 11400000, guid: afa012d0cb9a5e8458a65be4c1323aca, type: 2}
+  m_sharedMaterial: {fileID: 1607345072527782844, guid: afa012d0cb9a5e8458a65be4c1323aca,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2511,12 +2511,12 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 24
+  m_fontSize: 14.25
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 10
+  m_fontSizeMax: 70
   m_fontStyle: 0
   m_textAlignment: 514
   m_characterSpacing: 0
