@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     public float maxIdleTime = 5;
     public float fireRate = 1.5f;
     public float viewAngle = 45;
+    public float distanceToShoot;
 
     public Transform bulletSpawn;
     public GameObject bulletPrefab;
@@ -20,17 +21,18 @@ public class EnemyAI : MonoBehaviour
     public bool playerInRange = false;
     public bool playerInSight = false;
 
-    //public Animator animator;
+    public Animator animator;
     public SphereCollider visionRange;
 
-    StateMachine sm;
+    public StateMachine sm;
+    public EnemyDecisionTree enemyTree;
 
-    public float speed = 5;
 
     void Awake()
     {
+        enemyTree = new EnemyDecisionTree();
         visionRange = GetComponent<SphereCollider>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         sm = new StateMachine();
         sm.AddState(new EnemyPatrolState(sm, this));
         sm.AddState(new EnemyIdleState(sm, this));
@@ -38,25 +40,24 @@ public class EnemyAI : MonoBehaviour
         sm.SetState<EnemyPatrolState>();
     }
 
+    private void Start()
+    {
+        enemyTree._init.Execute();
+    }
+
     void Update()
     {
         sm.Update();
-        if (playerInRange)
-        {
-            Vector3 dirToPlayer = (player.transform.position - transform.position).normalized;
-            if (Vector3.Angle(transform.forward, dirToPlayer) < viewAngle)
-            {
-                playerInSight = !Physics.Raycast(transform.position, dirToPlayer, visionRange.radius, 1 << 8);
-            }
-        }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.GetComponent<PlayerController>())
         {
-            player = other.GetComponent<PlayerController>();
             playerInRange = true;
+            player = other.GetComponent<PlayerController>();
+            //LineOfSight();
+            enemyTree._init.Execute();
         }
     }
 
@@ -66,7 +67,47 @@ public class EnemyAI : MonoBehaviour
         {
             playerInRange = false;
             playerInSight = false;
+            enemyTree._init.Execute();
         }
     }
+    public void OnAnimatorShoot()
+    {
+        GameObject bullet = Object.Instantiate(bulletPrefab);
+        bullet.transform.position = bulletSpawn.position;
+        bullet.transform.up = bulletSpawn.forward;
+    }
 
+    bool LineOfSight()
+    {
+        Vector3 dirToPlayer = (player.transform.position - transform.position).normalized;
+        if (Vector3.Angle(transform.forward, dirToPlayer) < viewAngle)
+        {
+            playerInSight = !Physics.Raycast(transform.position, dirToPlayer, visionRange.radius, 1 << 8);
+        }
+        return playerInSight;
+    }
+
+    public void ActionShoot()
+    {
+        sm.SetState<EnemyShootState>();
+    }
+
+    public void ActionSeek()
+    {
+        sm.SetState<EnemySeekState>();
+    }
+    public void ActionPatrol()
+    {
+        sm.SetState<EnemyPatrolState>();
+    }
+
+    public bool QuestionDistanceShoot()
+    {
+        return Vector3.Distance(transform.position, player.transform.position) < distanceToShoot;
+    }
+
+    public bool QuestionIsPlayerOnSight()
+    {
+        return LineOfSight();
+    }
 }

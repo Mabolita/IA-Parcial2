@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionNode : Inode
+public class ActionNode : INode
 {
     public delegate void myDelegate();
     myDelegate _action;

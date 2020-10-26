@@ -13,9 +13,10 @@ public class EnemyIdleState : EnemyState
     public override void Awake()
     {
         base.Awake();
-        idleDuration = Random.Range(0, 5);
+        idleDuration = Random.Range(_enemy.minIdleTime, _enemy.maxIdleTime);
         currentIdleDuration = 0;
-        _enemy.speed = 0;
+        _enemy.animator.SetFloat("AngularSpeed", 0);
+        _enemy.animator.SetFloat("Speed", 0);
     }
 
     public override void Execute()
@@ -25,8 +26,5 @@ public class EnemyIdleState : EnemyState
 
         if (currentIdleDuration > idleDuration)
             _sm.SetState<EnemyPatrolState>();
-
-        if (_enemy.playerInSight)
-            _sm.SetState<EnemyShootState>();
     }
 }

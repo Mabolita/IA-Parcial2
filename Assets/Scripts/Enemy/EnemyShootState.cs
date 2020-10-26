@@ -11,20 +11,22 @@ public class EnemyShootState : EnemyState
     public override void Awake()
     {
         base.Awake();
-        _enemy.speed = 0;
+        _enemy.animator.SetBool("PlayerInSight", true);
+        _enemy.animator.SetFloat("Speed", 0);
+        _enemy.animator.SetFloat("AngularSpeed", 0);
     }
 
     public override void Execute()
     {
         base.Execute();
         Vector3 dirToPlayer = (_enemy.player.transform.position - _enemy.transform.position).normalized;
+        float angle =
+            Vector3.SignedAngle(
+                Vector3.ProjectOnPlane(dirToPlayer, Vector3.up),
+                Vector3.ProjectOnPlane(_enemy.transform.forward, Vector3.up),
+                Vector3.up);
+        _enemy.animator.SetFloat("AngularSpeed", -angle / 10);
 
-        _enemy.transform.LookAt(_enemy.player.transform.position);
-
-        if (!_enemy.playerInSight)
-        {
-            _sm.SetState<EnemyPatrolState>();
-        }
     }
     
     void Shoot()
@@ -37,6 +39,6 @@ public class EnemyShootState : EnemyState
     public override void Sleep()
     {
         base.Sleep();
-        _enemy.playerInSight = false;
+        _enemy.animator.SetBool("PlayerInSight", false);
     }
 }

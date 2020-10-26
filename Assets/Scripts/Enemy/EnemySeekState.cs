@@ -24,34 +24,26 @@ public class EnemySeekState : EnemyState
         float minDistance = obstacleAvoidanceDistance;
         RaycastHit ray;
 
-        if (!_enemy.playerInSight)
+        if (Physics.Raycast(_enemy.transform.position, _enemy.transform.forward, out ray, obstacleAvoidanceDistance))
         {
-            if (Physics.Raycast(_enemy.transform.position, _enemy.transform.forward, out ray, obstacleAvoidanceDistance))
+            for (int i = 10; i <= 180; i+=10)
             {
-                for (int i = 10; i <= 180; i+=10)
-                {
-                    bool collide = false;
-                    if (Physics.Raycast(_enemy.transform.position, Quaternion.AngleAxis(i, Vector3.up) * _enemy.transform.forward, out ray, obstacleAvoidanceDistance))
-                        collide = true;
-                    else
-                        avoidance = Quaternion.AngleAxis(i, Vector3.up) * _enemy.transform.forward;
+                bool collide = false;
+                if (Physics.Raycast(_enemy.transform.position, Quaternion.AngleAxis(i, Vector3.up) * _enemy.transform.forward, out ray, obstacleAvoidanceDistance))
+                    collide = true;
+                else
+                    avoidance = Quaternion.AngleAxis(i, Vector3.up) * _enemy.transform.forward;
 
-                    if (Physics.Raycast(_enemy.transform.position, Quaternion.AngleAxis(-i, Vector3.up) * _enemy.transform.forward, out ray, obstacleAvoidanceDistance))
-                        collide = true;
-                    else
-                        avoidance = Quaternion.AngleAxis(-i, Vector3.up) * _enemy.transform.forward;
-                    if (collide) continue;
-                    break;
-                }
+                if (Physics.Raycast(_enemy.transform.position, Quaternion.AngleAxis(-i, Vector3.up) * _enemy.transform.forward, out ray, obstacleAvoidanceDistance))
+                    collide = true;
+                else
+                    avoidance = Quaternion.AngleAxis(-i, Vector3.up) * _enemy.transform.forward;
+                if (collide) continue;
+                break;
             }
+        }
 
-            float speedMulti = minDistance / obstacleAvoidanceDistance;
-            avoidance.Normalize();
-        }
-        else
-        {
-            _enemy.transform.forward = Vector3.Slerp(_enemy.transform.forward, (target.position - _enemy.transform.position).normalized, .333f);
-            _sm.SetState<EnemyShootState>();
-        }
+        float speedMulti = minDistance / obstacleAvoidanceDistance;
+        avoidance.Normalize();
     }
 }

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestionNode : Inode
+public class QuestionNode : INode
 {
     public delegate bool myDelegate();
     myDelegate _question;
-    Inode _trueNode;
-    Inode _falseNode;
+    INode _trueNode;
+    INode _falseNode;
 
-    public QuestionNode(myDelegate question, Inode tN, Inode fN)
+    public QuestionNode(myDelegate question, INode tN, INode fN)
     {
         _question = question;
         _trueNode = tN;
