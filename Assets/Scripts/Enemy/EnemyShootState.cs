@@ -28,13 +28,6 @@ public class EnemyShootState : EnemyState
         _enemy.animator.SetFloat("AngularSpeed", -angle / 10);
 
     }
-    
-    void Shoot()
-    {
-        GameObject bullet = Object.Instantiate(_enemy.bulletPrefab);
-        bullet.transform.position = _enemy.bulletSpawn.position;
-        bullet.transform.up = _enemy.bulletSpawn.forward;
-    }
 
     public override void Sleep()
     {

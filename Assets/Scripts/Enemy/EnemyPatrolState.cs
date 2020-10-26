@@ -19,7 +19,6 @@ public class EnemyPatrolState : EnemyState
     public override void Execute()
     {
         base.Execute();
-
         Transform target = _enemy.waypoints[_enemy.currentWaypointTarget];
         _enemy.transform.LookAt(target);
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyDecisionTree : MonoBehaviour
 {
-    public EnemyAI enemy;
+    public EnemyAI _enemy;
 
     QuestionNode _isPlayerInRange;
     QuestionNode _isPlayerInSight;
@@ -15,15 +15,21 @@ public class EnemyDecisionTree : MonoBehaviour
 
     public INode _init;
 
-    private void Start()
+    public EnemyDecisionTree(EnemyAI enemy)
     {
-        _actionShoot = new ActionNode(enemy.ActionShoot);
-        _actionSeek = new ActionNode(enemy.ActionSeek);
-        _actionPatrol = new ActionNode(enemy.ActionPatrol);
+        _enemy = enemy;
+    }
 
-        _isPlayerInSight = new QuestionNode(enemy.QuestionIsPlayerOnSight, _isPlayerInRange, _actionPatrol);
-        _isPlayerInRange = new QuestionNode(enemy.QuestionDistanceShoot, _actionShoot, _actionSeek);
-        _init.Execute();
+    public void SetNodes()
+    {
+        _actionShoot = new ActionNode(_enemy.ActionShoot);
+        _actionSeek = new ActionNode(_enemy.ActionSeek);
+        _actionPatrol = new ActionNode(_enemy.ActionPatrol);
+
+        _isPlayerInRange = new QuestionNode(_enemy.QuestionDistanceShoot, _actionShoot, _actionSeek);
+        _isPlayerInSight = new QuestionNode(_enemy.QuestionIsPlayerOnSight, _isPlayerInRange, _actionPatrol);
+
+        _init = _isPlayerInSight;
     }
 
     
