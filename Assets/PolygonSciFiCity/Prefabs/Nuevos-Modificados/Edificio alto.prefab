@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 4700889563105782410}
   - component: {fileID: 4691582574401463828}
   m_Layer: 0
-  m_Name: SM_Sign_Neon_07 (2)
+  m_Name: Edificio Alto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 4700665709298818271}
   - component: {fileID: 4690771649371851075}
   m_Layer: 0
-  m_Name: SM_Sign_Neon_01 (4)
+  m_Name: Edificio Alto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 4690670210390796500}
   - component: {fileID: 4732577194620829896}
   m_Layer: 0
-  m_Name: SM_Sign_07
+  m_Name: Edificio Alto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -592,7 +592,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4706105707665622430}
   m_LocalRotation: {x: -0, y: -0.0000015497205, z: -0, w: 1}
-  m_LocalPosition: {x: -2.4736922, y: 3.776747, z: -4.27507}
+  m_LocalPosition: {x: -3.26, y: 3.776747, z: -4.94}
   m_LocalScale: {x: 1.3705909, y: 0.8570442, z: 1.1970716}
   m_Children: []
   m_Father: {fileID: 1657625321683589176}

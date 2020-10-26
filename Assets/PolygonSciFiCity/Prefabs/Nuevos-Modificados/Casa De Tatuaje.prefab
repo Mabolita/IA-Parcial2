@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 4218865060516363556}
   - component: {fileID: 4228755856890704344}
   m_Layer: 0
-  m_Name: SM_Sign_Neon_04 (1)
+  m_Name: Tatuaje
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 4227146786051611537}
   - component: {fileID: 4184141481378018453}
   m_Layer: 0
-  m_Name: SM_Sign_06 (4)
+  m_Name: Tatuaje
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

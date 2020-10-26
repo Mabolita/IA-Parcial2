@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 7705910667420175839}
   - component: {fileID: 7656903291603210191}
   m_Layer: 0
-  m_Name: SM_Sign_Ad_05 (2)
+  m_Name: Casa Japo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 7705910667595874898}
   - component: {fileID: 7656903291628699714}
   m_Layer: 0
-  m_Name: SM_Sign_Ad_05 (1)
+  m_Name: Casa Japo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 7707528915782260806}
   - component: {fileID: 7659597979948558064}
   m_Layer: 0
-  m_Name: SM_Sign_Ad_03
+  m_Name: Casa Japo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -675,7 +675,7 @@ GameObject:
   - component: {fileID: 7700327764389806311}
   - component: {fileID: 7707384498428540877}
   m_Layer: 0
-  m_Name: SM_Sign_Neon_03
+  m_Name: Casa Japo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 7707447339690823893}
   - component: {fileID: 7657018952432134383}
   m_Layer: 0
-  m_Name: SM_Sign_Billboard_Large_03 (1)
+  m_Name: Casa Japo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -846,7 +846,7 @@ GameObject:
   - component: {fileID: 7706023705521159960}
   - component: {fileID: 7659971084417636788}
   m_Layer: 0
-  m_Name: SM_Sign_Ad_16
+  m_Name: Casa Japo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
