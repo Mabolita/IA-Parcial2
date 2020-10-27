@@ -14,6 +14,7 @@ public class PlayerAnimator : MonoBehaviour
         player = GetComponent<PlayerController>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        anim.SetBool("Walk", true);
     }
 
     void Update()
@@ -41,7 +42,6 @@ public class PlayerAnimator : MonoBehaviour
             anim.SetTrigger("Dash");
             print("Dash");
         }
-
     }
 
     private void OnTriggerEnter(Collider _trigcoll)
@@ -52,6 +52,10 @@ public class PlayerAnimator : MonoBehaviour
             anim.SetBool("Win",true);
         }
 
+        if (_trigcoll.gameObject.CompareTag("Bullet") || _trigcoll.gameObject.CompareTag("Death"))
+        {
+            anim.SetTrigger("Death");
+        }
     }
 
 }

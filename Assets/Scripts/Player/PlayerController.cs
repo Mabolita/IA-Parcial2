@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     private CameraController _cc;
+    private CapsuleCollider capsuleCollider;
     private Dash _d;
     public Rigidbody _rb;
     private Animator _anim;
     private Vector3 normalHit;
+
+    public List<string> tags = new List<string>();
 
     private float xSensitivity = 100.0f;
     private float ySensitivity = 100.0f;
@@ -40,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        capsuleCollider = GetComponent<CapsuleCollider>();
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
         _d = new Dash(lm, distance, transform, camPivot);
@@ -170,6 +175,17 @@ public class PlayerController : MonoBehaviour
         else
         {
             _rb.velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        foreach (var tag in tags)
+        {
+            if (other.gameObject.CompareTag(tag))
+            {
+                capsuleCollider.center = new Vector3(0, 1.5f, 0);
+            }
         }
     }
 
