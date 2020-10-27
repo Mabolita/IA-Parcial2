@@ -40,7 +40,6 @@ public class EnemyAI : MonoBehaviour
         animator = GetComponent<Animator>();
         enemyTree = new EnemyDecisionTree(this);
         enemyTree.SetNodes();
-        //sm.SetState<EnemyPatrolState>();
     }
 
     private void Start()
