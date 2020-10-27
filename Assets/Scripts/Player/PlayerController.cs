@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
         //_anim.SetBool("Idle", true);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -79,12 +79,11 @@ public class PlayerController : MonoBehaviour
             _cc.RotateCam();
         }
 
-        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             Move();
         }
-
-        if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
+        else
         {
             if (!isOnSlope)
             {
