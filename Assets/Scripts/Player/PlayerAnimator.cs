@@ -6,30 +6,54 @@ public class PlayerAnimator : MonoBehaviour
 {
     public Animator anim;
     public Collider trigcoll;
+    private Rigidbody rb;
     
     void Start()
     {
         anim = GetComponent<Animator>();
-        anim.SetBool("Idle",true);
+        rb = GetComponent<Rigidbody>();
+        anim.SetBool("Idle", true);
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        anim.SetFloat("SpeedX", rb.velocity.x);
+        anim.SetFloat("SpeedZ", rb.velocity.z);
+
+
         //CAMINATA
-        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) ||
-           Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        if (Input.GetAxis("Horizontal")!=0)
         {
-            anim.SetBool("Idle", false);
             anim.SetBool("Walk", true);
-            print("Walk");
+            anim.SetBool("Idle", false);
+            print(rb.velocity.x);
+        }
+        
+        if(Input.GetAxis("Vertical") != 0)
+        {
+            anim.SetBool("Walk", true);
+            anim.SetBool("Idle", false);
+            //anim.SetFloat("SpeedZ", rb.velocity.z);
+            print(rb.velocity.z);
         }
 
-        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) ||
-           Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
+        if (Input.GetAxis("Horizontal") == 0 )
         {
-            anim.SetBool("Idle", true);
             anim.SetBool("Walk", false);
+            //anim.SetFloat("SpeedX", 0);
+            anim.SetBool("Idle", true);
+            //anim.SetBool("Walk", false);
+            print("NotWalk");
+        }
+
+        if( Input.GetAxis("Vertical") == 0)
+        {
+            anim.SetBool("Walk", false);
+            //anim.SetFloat("SpeedZ", 0);
+            anim.SetBool("Idle", true);
+            //anim.SetBool("Walk", false);
             print("NotWalk");
         }
 
