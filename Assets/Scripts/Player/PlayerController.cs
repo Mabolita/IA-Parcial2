@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private CameraController _cc;
     private Dash _d;
-    private Rigidbody _rb;
+    public Rigidbody _rb;
     private Animator _anim;
     private Vector3 normalHit;
 
