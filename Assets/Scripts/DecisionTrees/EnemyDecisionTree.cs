@@ -30,10 +30,10 @@ public class EnemyDecisionTree : MonoBehaviour
         _actionHacked = new ActionNode(_enemy.ActionHacked);
 
         _isPlayerInRange = new QuestionNode(_enemy.QuestionDistanceShoot, _actionShoot, _actionSeek);
-        _isHacked = new QuestionNode(_enemy.QuestionHack,_actionHacked,_isPlayerInRange);
-        _isPlayerInSight = new QuestionNode(_enemy.QuestionIsPlayerOnSight, _isHacked, _actionPatrol);
+        _isPlayerInSight = new QuestionNode(_enemy.QuestionIsPlayerOnSight, _isPlayerInRange, _actionPatrol);
+        _isHacked = new QuestionNode(_enemy.QuestionHack,_actionHacked, _isPlayerInSight);
 
-        _init = _isPlayerInSight;
+        _init = _isHacked;
     }
 
     

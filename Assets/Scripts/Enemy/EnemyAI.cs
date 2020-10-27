@@ -11,10 +11,11 @@ public class EnemyAI : MonoBehaviour
     public float distanceToShoot;
     public LayerMask _lm;
     public bool hack;
+    private bool isTreeExecuted;
 
     public Transform bulletSpawn;
     public GameObject bulletPrefab;
-
+    public ParticleSystem hackParticle;
     public PlayerController player;
 
     public List<Transform> waypoints = new List<Transform>();
@@ -52,6 +53,14 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         sm.Update();
+        if (!hack)
+        {
+            if (!isTreeExecuted)
+            {
+                enemyTree._init.Execute();
+            }
+        }
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -102,41 +111,35 @@ public class EnemyAI : MonoBehaviour
 
     public void ActionShoot()
     {
-        Debug.Log("shoot");
         sm.SetState<EnemyShootState>();
     }
 
     public void ActionSeek()
     {
-        Debug.Log("seek");
         sm.SetState<EnemySeekState>();
     }
     public void ActionPatrol()
     {
-        Debug.Log("patrol");
         sm.SetState<EnemyPatrolState>();
+    }
+
+    public void ActionHacked()
+    {
+        sm.SetState<EnemyHackedState>();
     }
 
     public bool QuestionDistanceShoot()
     {
-        Debug.Log("Distaceshoot");
         return Vector3.Distance(transform.position, player.transform.position) < distanceToShoot;
     }
 
     public bool QuestionIsPlayerOnSight()
     {
-        Debug.Log("sight");
         return LineOfSight();
     }
 
     public bool QuestionHack()
     {
-        Debug.Log("QHack");
         return hack;
-    }
-    public void ActionHacked()
-    {
-        Debug.Log("Hacked");
-        sm.SetState<EnemyHackedState>();
     }
 }

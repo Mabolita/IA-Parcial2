@@ -522,6 +522,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerFinal
       objectReference: {fileID: 0}
+    - target: {fileID: 6913268566644610740, guid: 386f7c1f8d1d53e4e91d9af87435a018,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6913268566644610747, guid: 386f7c1f8d1d53e4e91d9af87435a018,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6913268566644610747, guid: 386f7c1f8d1d53e4e91d9af87435a018,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6913268566644610747, guid: 386f7c1f8d1d53e4e91d9af87435a018,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 6913268566644610750, guid: 386f7c1f8d1d53e4e91d9af87435a018,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -837,6 +857,12 @@ PrefabInstance:
       propertyPath: _lm.m_Bits
       value: 823
       objectReference: {fileID: 0}
+    - target: {fileID: 6822156586654989882, guid: 1832c792768549942be70549e42cc36e,
+        type: 3}
+      propertyPath: hackParticle
+      value: 
+      objectReference: {fileID: 5094104967300745320, guid: 49b2cde35f0a44de7a9c212ac7815caa,
+        type: 3}
     - target: {fileID: 6903124858021964352, guid: 1832c792768549942be70549e42cc36e,
         type: 3}
       propertyPath: m_Name
@@ -850,7 +876,7 @@ PrefabInstance:
     - target: {fileID: 6903124858021964352, guid: 1832c792768549942be70549e42cc36e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6910215662689106559, guid: 1832c792768549942be70549e42cc36e,
         type: 3}
