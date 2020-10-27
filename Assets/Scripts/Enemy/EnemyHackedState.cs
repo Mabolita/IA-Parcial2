@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyHackedState : EnemyState
 {
+    float hackDuration = 3;
+    float currentHackDuration = 0;
+
     public EnemyHackedState(StateMachine sm, EnemyAI enemy) : base(sm, enemy)
     {
     }
@@ -11,19 +14,30 @@ public class EnemyHackedState : EnemyState
     public override void Awake()
     {
         base.Awake();
-        _enemy.animator.SetFloat("Speed", 0);
-        _enemy.animator.SetFloat("AngularSpeed", 0);
+        currentHackDuration = 0;
+        _enemy.animator.SetBool("Hack", true);
+        ParticleSystem obj = GameObject.Instantiate(_enemy.hackParticle, _enemy.transform.position, _enemy.transform.rotation);
+        _enemy.hackParticle.Play();
+        GameObject.Destroy(obj, 3f);
+
     }
 
     public override void Execute()
     {
         base.Execute();
-        Debug.Log("Hack");
+
+        currentHackDuration += Time.deltaTime;
+
+        if (currentHackDuration > hackDuration)
+        {
+            Sleep();
+        }
     }
 
     public override void Sleep()
     {
         base.Sleep();
+        _enemy.animator.SetBool("Hack", false);
         _enemy.hack = false;
     }
 }

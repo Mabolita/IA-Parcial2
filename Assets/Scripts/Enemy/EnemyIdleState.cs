@@ -15,6 +15,7 @@ public class EnemyIdleState : EnemyState
         base.Awake();
         idleDuration = Random.Range(_enemy.minIdleTime, _enemy.maxIdleTime);
         currentIdleDuration = 0;
+        _enemy.animator.enabled = false;
         _enemy.animator.SetFloat("AngularSpeed", 0);
         _enemy.animator.SetFloat("Speed", 0);
     }
