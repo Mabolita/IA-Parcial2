@@ -1437,6 +1437,7 @@ GameObject:
   - component: {fileID: 6913268566644610747}
   - component: {fileID: 6913268566644610746}
   - component: {fileID: 6913268566644610741}
+  - component: {fileID: 1398744987}
   m_Layer: 8
   m_Name: PlayerFinal
   m_TagString: Untagged
@@ -1483,7 +1484,7 @@ MonoBehaviour:
   slopeLimit: 44
   slideVelocity: 20
   slideForceDown: 50
-  moveSpeed: 20
+  moveSpeed: 500
   MaxMoveSpeed: 10
   distance: 5
   Sensitivity: 100
@@ -1518,7 +1519,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!95 &6913268566644610746
 Animator:
   serializedVersion: 3
@@ -1557,6 +1558,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 6913268566644610746}
   trigcoll: {fileID: 6913268566644610744}
+--- !u!114 &1398744987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6913268566644610740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bedb4b803934694439603e61b5b0ddcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 12.93
+  player: {fileID: 6913268566644610750}
 --- !u!1 &7501291302674889719
 GameObject:
   m_ObjectHideFlags: 0
