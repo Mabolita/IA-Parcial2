@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     public float viewAngle = 45;
     public float distanceToShoot;
     public LayerMask _lm;
+    public bool hack;
 
     public Transform bulletSpawn;
     public GameObject bulletPrefab;
@@ -36,6 +37,7 @@ public class EnemyAI : MonoBehaviour
         sm.AddState(new EnemyIdleState(sm, this));
         sm.AddState(new EnemyShootState(sm, this));
         sm.AddState(new EnemySeekState(sm, this));
+        sm.AddState(new EnemyHackedState(sm, this));
         visionRange = GetComponent<SphereCollider>();
         animator = GetComponent<Animator>();
         enemyTree = new EnemyDecisionTree(this);
@@ -74,7 +76,7 @@ public class EnemyAI : MonoBehaviour
     }
     public void OnAnimatorShoot()
     {
-        Bullet bullet = Object.Instantiate(bulletPrefab,bulletSpawn.position,bulletSpawn.rotation).GetComponent<Bullet>();
+        Bullet bullet = Object.Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation).GetComponent<Bullet>();
         bullet.transform.up = bulletSpawn.forward;
         bullet.enemy = transform;
     }
@@ -85,7 +87,7 @@ public class EnemyAI : MonoBehaviour
         if (Vector3.Angle(transform.forward, dirToPlayer) < viewAngle)
         {
             RaycastHit hit = new RaycastHit();
-            if (Physics.Raycast(transform.position, dirToPlayer,out hit, visionRange.radius, _lm))
+            if (Physics.Raycast(transform.position, dirToPlayer, out hit, visionRange.radius, _lm))
             {
                 playerInSight = hit.transform.gameObject.layer == 8;
             }
@@ -93,7 +95,7 @@ public class EnemyAI : MonoBehaviour
             {
                 return false;
             }
-            
+
         }
         return playerInSight;
     }
@@ -125,5 +127,16 @@ public class EnemyAI : MonoBehaviour
     {
         Debug.Log("sight");
         return LineOfSight();
+    }
+
+    public bool QuestionHack()
+    {
+        Debug.Log("QHack");
+        return hack;
+    }
+    public void ActionHacked()
+    {
+        Debug.Log("Hacked");
+        sm.SetState<EnemyHackedState>();
     }
 }
