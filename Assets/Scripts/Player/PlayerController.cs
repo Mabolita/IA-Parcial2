@@ -145,6 +145,7 @@ public class PlayerController : MonoBehaviour
     public void SlideDown()
     {
         isOnSlope = Vector3.Angle(Vector3.up, normalHit) >= slopeLimit;
+
         if (isOnSlope)
         {
             _rb.velocity += new Vector3(normalHit.x * slideVelocity, -slideForceDown, normalHit.z * slideVelocity) * Time.deltaTime;
