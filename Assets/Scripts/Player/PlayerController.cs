@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private float xMaxLimit = 360.0f;
     private float yRot = 0.0f;
     private float xRot = 0.0f;
-    private int jums;
+    private int jumps;
     private bool isOnSlope;
 
     public LayerMask lm;
@@ -96,9 +96,9 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        if (jums < maxCantJumps)
+        if (jumps < maxCantJumps)
         {
-            jums++;
+            jumps++;
             _rb.velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
             Vector3 force = transform.up * jumpForce;
             _rb.AddForce(force, ForceMode.Force);
@@ -133,9 +133,9 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.layer == 9)
         {
-            if (jums != 0 && !isOnSlope)
+            if (jumps != 0 && !isOnSlope)
             {
-                jums = 0;
+                jumps = 0;
             }
             normalHit = collision.GetContact(0).normal;
             SlideDown();
