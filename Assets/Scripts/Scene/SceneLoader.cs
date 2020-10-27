@@ -21,12 +21,22 @@ public class SceneLoader : MonoBehaviour
 
     public void Level1()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Level 1");
     }
 
     public void Credits()
     {
         SceneManager.LoadScene("Credits");
+    }
+
+    public void Win()
+    {
+        SceneManager.LoadScene("Win");
+    }
+
+    public void Lose()
+    {
+        SceneManager.LoadScene("Lose");
     }
 
 
