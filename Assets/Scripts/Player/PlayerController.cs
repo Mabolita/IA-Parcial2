@@ -79,6 +79,13 @@ public class PlayerController : MonoBehaviour
             _cc.RotateCam();
         }
 
+        FixMove();
+
+    }
+
+    public void FixMove()
+    {
+
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             Move();
@@ -91,6 +98,7 @@ public class PlayerController : MonoBehaviour
             }
             _rb.freezeRotation = _rb;
         }
+
     }
 
     public void Jump()
@@ -106,13 +114,50 @@ public class PlayerController : MonoBehaviour
 
     public void Move()
     {
-        Vector3 inputs = Vector3.ClampMagnitude(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")), 1);
+        float inputX = 0;
+        float inputY = 0;
+        inputX = SetInputX(inputX);
+        inputY = SetInputY(inputY);
+        Vector3 inputs = Vector3.ClampMagnitude(new Vector3(inputX, 0, inputY), 1);
         Vector3 dir = inputs.x * transform.right + inputs.z * transform.forward;
-        Vector3 vel = _rb.velocity;
 
-        Vector3 move = (dir * moveSpeed * Time.deltaTime) + vel;
+        Vector3 move = (dir * moveSpeed * Time.deltaTime);
         move = Vector3.ClampMagnitude(move, MaxMoveSpeed);
-        _rb.velocity = move;
+        _rb.velocity = new Vector3(move.x, _rb.velocity.y, move.z);
+    }
+
+    public float SetInputX(float x)
+    {
+        if (Input.GetKey(KeyCode.D))
+        {
+            x = 1;
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            x = -1;
+        }
+        else
+        {
+            x = 0;
+        }
+        return x;
+    }
+
+    public float SetInputY(float y)
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+            y = 1;
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            y = -1;
+        }
+        else
+        {
+            y = 0;
+        }
+        return y;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -144,7 +189,6 @@ public class PlayerController : MonoBehaviour
     public void SlideDown()
     {
         isOnSlope = Vector3.Angle(Vector3.up, normalHit) >= slopeLimit;
-
         if (isOnSlope)
         {
             _rb.velocity += new Vector3(normalHit.x * slideVelocity, -slideForceDown, normalHit.z * slideVelocity) * Time.deltaTime;
