@@ -144,4 +144,10 @@ public class EnemyAI : MonoBehaviour
     {
         return hack;
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, distanceToShoot);
+    }
 }
