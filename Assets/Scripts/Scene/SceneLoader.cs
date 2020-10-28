@@ -10,8 +10,10 @@ public class SceneLoader : MonoBehaviour
     public TextMeshProUGUI gearsText;
     public Image subMenuImage1;
     public Image subMenuImage2;
+    public Image Controles;
+    public Image MenuNormal;
     public static SceneLoader Instance { get; private set; }
-
+    public bool ingame;
 
     private CanvasController canvasController;
     private AsyncOperation _loadSceneOperation;
@@ -30,7 +32,10 @@ public class SceneLoader : MonoBehaviour
 
     private void Start()
     {
+        if (ingame)
+        {
         gearsText.text = GameManager.Instance.points.ToString();
+        }
     }
 
     //Cargar escenas
@@ -80,6 +85,11 @@ public class SceneLoader : MonoBehaviour
         subMenuImage2.gameObject.SetActive(false);
     }
 
+    public void Control()
+    {
+        Controles.gameObject.SetActive(!Controles.gameObject.activeSelf);
+        MenuNormal.gameObject.SetActive(!MenuNormal.gameObject.activeSelf);
+    }
 
     //Escena de carga
     IEnumerator LoadSceneAsync(string sceneName)

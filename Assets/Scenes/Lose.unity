@@ -407,7 +407,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 136
+  m_fontSize: 118.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -565,7 +565,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 87.9
+  m_fontSize: 76.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1003,6 +1003,9 @@ MonoBehaviour:
   gearsText: {fileID: 249633039}
   subMenuImage1: {fileID: 0}
   subMenuImage2: {fileID: 0}
+  Controles: {fileID: 0}
+  MenuNormal: {fileID: 0}
+  ingame: 1
 --- !u!1 &651432406
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,7 +1156,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 35
+  m_fontSize: 32.85
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1484,7 +1487,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 35
+  m_fontSize: 33.3
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1815,7 +1818,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 47.3
+  m_fontSize: 46.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1971,7 +1974,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 60.45
+  m_fontSize: 59.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

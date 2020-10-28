@@ -16,8 +16,11 @@ public class GameManager : MonoBehaviour
 
     public Transform CurrentCheckPoint => _currentCheckpoint;
 
+    private int num;
     private void Awake()
     {
+        Cursor.lockState=CursorLockMode.Locked;
+        Cursor.visible = false;
         if (Instance != null)
         {
             Destroy(this);
@@ -25,10 +28,8 @@ public class GameManager : MonoBehaviour
         else
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
-        Cursor.lockState=CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     private void Start()
@@ -48,11 +49,30 @@ public class GameManager : MonoBehaviour
             CanvasController.lose = false;
         }
 
-        //if (Input.GetKeyDown(KeyCode.O))
-        //{
-        //    Win();
-        //}
-
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            num--;
+            if (num < 0)
+            {
+                num = 0;
+            }
+            SceneManager.LoadScene(num);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            audioSource.clip = null;
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            num++;
+            if (num > SceneManager.sceneCountInBuildSettings-1)
+            {
+                num = SceneManager.sceneCountInBuildSettings-1;
+            }
+            SceneManager.LoadScene(num);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            audioSource.clip = null;
+        }
     }
 
     public void SetNewCheckpoint(Transform checkPoint)
@@ -64,6 +84,7 @@ public class GameManager : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        audioSource.clip = null;
         SceneManager.LoadScene("Lose");
     }
 
@@ -71,8 +92,16 @@ public class GameManager : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        SceneManager.LoadScene("Win");
         audioSource.clip = null;
+        SceneManager.LoadScene("Win");
 
+    }
+
+    public void Menu()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        audioSource.clip = null;
+        SceneManager.LoadScene("Menu");
     }
 }
