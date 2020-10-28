@@ -12,6 +12,7 @@ public class EnemyAI : MonoBehaviour
     public LayerMask _lm;
     public bool hack;
     private bool isTreeExecuted;
+    public float speed; 
 
     public Transform bulletSpawn;
     public Transform hackParticleSpawn;

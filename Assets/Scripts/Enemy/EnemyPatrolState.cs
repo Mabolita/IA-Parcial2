@@ -12,7 +12,7 @@ public class EnemyPatrolState : EnemyState
     public override void Awake()
     {
         base.Awake();
-        _enemy.animator.SetFloat("Speed", 2);
+        _enemy.animator.SetFloat("Speed", _enemy.speed);
         _enemy.animator.SetFloat("AngularSpeed", 0);
     }
 

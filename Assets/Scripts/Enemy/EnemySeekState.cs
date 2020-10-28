@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySeekState : EnemyState
 {
-     Transform  target;
+    Transform  target;
     float obstacleAvoidanceDistance = 5;
     Vector3 avoidance = Vector3.zero;
     public EnemySeekState(StateMachine sm, EnemyAI enemy) : base(sm, enemy)
@@ -14,7 +14,7 @@ public class EnemySeekState : EnemyState
     public override void Awake()
     {
         base.Awake();
-        _enemy.animator.SetFloat("Speed", 2);
+        _enemy.animator.SetFloat("Speed", _enemy.speed);
         _enemy.animator.SetFloat("AngularSpeed", 0);
     }
 
