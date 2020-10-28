@@ -98,7 +98,7 @@ MonoBehaviour:
   height: 0
   speed: 0
   coll: {fileID: -1895915482917871073}
-  PS: {fileID: 6329748598232997590, guid: 61af9e2193a1d4cd08c2f7b9b7dfd156, type: 3}
+  PS: {fileID: 6972066556261441139, guid: f66e707e269c343f1a6f095ed06d3a5c, type: 3}
   powerDash: 0
   powerHack: 0
   _audioClip: {fileID: 8300000, guid: 023e105ef59b0cb4ab5cccca4c1f9206, type: 3}
