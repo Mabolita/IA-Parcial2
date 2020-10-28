@@ -59,6 +59,7 @@ public class PlayerAnimator : MonoBehaviour
         if (_trigcoll.gameObject.CompareTag("Bullet") || _trigcoll.gameObject.CompareTag("Death"))
         {
             anim.SetTrigger("Death");
+            
         }
     }
 
