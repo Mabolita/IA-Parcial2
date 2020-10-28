@@ -33,7 +33,7 @@ public class PlayerAnimator : MonoBehaviour
         {
             anim.SetBool("Walk", false);
             anim.SetTrigger("Jump");
-            print("Jump");
+            player.audioSource.PlayOneShot(player.jumpSound);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -42,9 +42,13 @@ public class PlayerAnimator : MonoBehaviour
             if (player.Dash && !player.hack)
             {
                 anim.SetTrigger("Dash");
+                player.audioSource.PlayOneShot(player.dashSound);
             }
             else
+            {
                 anim.SetTrigger("Hack");
+                player.audioSource.PlayOneShot(player.hackSound);
+            }
         }
     }
 
@@ -59,7 +63,7 @@ public class PlayerAnimator : MonoBehaviour
         if (_trigcoll.gameObject.CompareTag("Bullet") || _trigcoll.gameObject.CompareTag("Death"))
         {
             anim.SetTrigger("Death");
-            
+            player.audioSource.PlayOneShot(player.deathSound);
         }
     }
 

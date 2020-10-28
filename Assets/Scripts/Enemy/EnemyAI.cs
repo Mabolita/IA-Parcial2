@@ -31,7 +31,8 @@ public class EnemyAI : MonoBehaviour
 
     public StateMachine sm;
     public EnemyDecisionTree enemyTree;
-
+    public AudioSource audioSource;
+    public AudioClip hackSound, shootSound;
 
     void Awake()
     {
@@ -43,6 +44,7 @@ public class EnemyAI : MonoBehaviour
         sm.AddState(new EnemyHackedState(sm, this));
         visionRange = GetComponent<SphereCollider>();
         animator = GetComponent<Animator>();
+        player = FindObjectOfType<PlayerController>();
         enemyTree = new EnemyDecisionTree(this);
         enemyTree.SetNodes();
     }
@@ -55,10 +57,6 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         sm.Update();
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            ActionHacked();
-        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -83,6 +81,7 @@ public class EnemyAI : MonoBehaviour
     }
     public void OnAnimatorShoot()
     {
+        audioSource.PlayOneShot(shootSound);
         Bullet bullet = Object.Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation).GetComponent<Bullet>();
         bullet.transform.up = bulletSpawn.forward;
         bullet.enemy = transform;

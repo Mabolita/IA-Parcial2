@@ -834,6 +834,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 823
   hack: 0
+  speed: 3
   bulletSpawn: {fileID: 9106779874680083710}
   hackParticleSpawn: {fileID: 8719974972867759009}
   bulletPrefab: {fileID: 1915812027166286, guid: 71043590938610d4784abb3b88fa0d80,
@@ -853,6 +854,9 @@ MonoBehaviour:
   animator: {fileID: 3817601783062423509}
   visionRange: {fileID: 8118854622652030284}
   enemyTree: {fileID: 0}
+  audioSource: {fileID: 0}
+  hackSound: {fileID: 0}
+  shootSound: {fileID: 0}
 --- !u!1 &4066730415285800405
 GameObject:
   m_ObjectHideFlags: 0

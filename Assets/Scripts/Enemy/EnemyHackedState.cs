@@ -16,6 +16,7 @@ public class EnemyHackedState : EnemyState
         base.Awake();
         currentHackDuration = 0;
         _enemy.animator.SetBool("Hack", true);
+        _enemy.audioSource.PlayOneShot(_enemy.hackSound);
         ParticleSystem obj = GameObject.Instantiate(_enemy.hackParticle, _enemy.hackParticleSpawn.transform.position, _enemy.transform.rotation);
         _enemy.hackParticle.Play();
         GameObject.Destroy(obj, 3f);

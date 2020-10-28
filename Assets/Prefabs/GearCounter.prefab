@@ -852,10 +852,7 @@ MonoBehaviour:
   hackImage: {fileID: 1530142161}
   hackFillImage: {fileID: 614429467}
   pc: {fileID: 0}
-  gearsCount: 0
-  seconds: 0
-  minute: 0
-  hours: 0
+  maxMinuteTime: 3
   hack: 0
   dash: 0
   activeImage: 0

@@ -1126,6 +1126,11 @@ PrefabInstance:
       propertyPath: pc
       value: 
       objectReference: {fileID: 2120914619}
+    - target: {fileID: 922823128571653184, guid: eef93868af5574e81813c3938108f553,
+        type: 3}
+      propertyPath: maxMinuteTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7583435885290488595, guid: eef93868af5574e81813c3938108f553,
         type: 3}
       propertyPath: m_Name
