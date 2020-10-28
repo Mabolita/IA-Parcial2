@@ -8,26 +8,38 @@ public class PlayerAnimator : MonoBehaviour
     public Collider trigcoll;
     private Rigidbody rb;
     private PlayerController player;
-  
+    public float stepcooldown;
+    float _stepcooldown=0.3f;
+    bool step;
     void Start()
     {
         player = GetComponent<PlayerController>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         anim.SetBool("Walk", true);
+        stepcooldown = _stepcooldown;
     }
 
     void Update()
     {
+        stepcooldown -= Time.deltaTime;
+        if(stepcooldown<=0)
+        {
+            step = true;
+        }
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             anim.SetBool("Walk", true);
             anim.SetFloat("SpeedZ", Input.GetAxis("Vertical"));
             anim.SetFloat("SpeedX", Input.GetAxis("Horizontal"));
-            if (!player.audioSource.isPlaying)
+            
+            if (step == true)
             {
                 player.audioSource.PlayOneShot(player.walkSound);
+                step = false;
+                stepcooldown = _stepcooldown;
             }
+
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
