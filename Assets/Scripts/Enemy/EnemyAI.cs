@@ -31,7 +31,8 @@ public class EnemyAI : MonoBehaviour
 
     public StateMachine sm;
     public EnemyDecisionTree enemyTree;
-
+    public AudioSource audioSource;
+    public AudioClip hackSound, shootSound;
 
     void Awake()
     {
@@ -83,6 +84,7 @@ public class EnemyAI : MonoBehaviour
     }
     public void OnAnimatorShoot()
     {
+        audioSource.PlayOneShot(shootSound);
         Bullet bullet = Object.Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation).GetComponent<Bullet>();
         bullet.transform.up = bulletSpawn.forward;
         bullet.enemy = transform;

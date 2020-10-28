@@ -9,11 +9,8 @@ public class PlayerController : MonoBehaviour
     private CapsuleCollider capsuleCollider;
     private Dash _d;
     private Hack _h;
-    public Rigidbody _rb;
     private Animator _anim;
     private Vector3 normalHit;
-
-    public List<string> tags = new List<string>();
 
     private float xSensitivity = 100.0f;
     private float ySensitivity = 100.0f;
@@ -26,9 +23,18 @@ public class PlayerController : MonoBehaviour
     private int jumps;
     private bool isOnSlope;
 
-    public LayerMask lm;
+
+    [Header("Componentes")]
+    public Rigidbody rigidBody;
+    public List<string> tags = new List<string>();
+    public LayerMask layerMask;
     public Transform camPivot;
 
+    [Header("Sonidos")]
+    public AudioSource audioSource;
+    public AudioClip jumpSound, hackSound, deathSound, dashSound;
+
+    [Header("Variables")]
     public int maxCantJumps;
     public float jumpForce;
     public float slopeLimit;
@@ -46,14 +52,12 @@ public class PlayerController : MonoBehaviour
     public bool Dash;
     public bool hack;
 
-
-
     private void Awake()
     {
         capsuleCollider = GetComponent<CapsuleCollider>();
-        _rb = GetComponent<Rigidbody>();
+        rigidBody = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
-        _d = new Dash(lm, distance, transform, camPivot);
+        _d = new Dash(layerMask, distance, transform, camPivot);
         _h = new Hack(rangeHack);
         _cc = new CameraController(camPivot, xSensitivity, ySensitivity, yMinLimit, yMaxLimit, xMinLimit, xMaxLimit, yRot, xRot, transform);
 
@@ -120,9 +124,9 @@ public class PlayerController : MonoBehaviour
         {
             if (!isOnSlope)
             {
-                _rb.velocity = new Vector3(0, _rb.velocity.y, 0);
+                rigidBody.velocity = new Vector3(0, rigidBody.velocity.y, 0);
             }
-            _rb.freezeRotation = _rb;
+            rigidBody.freezeRotation = rigidBody;
         }
 
     }
@@ -132,9 +136,9 @@ public class PlayerController : MonoBehaviour
         if (jumps < maxCantJumps)
         {
             jumps++;
-            _rb.velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
+            rigidBody.velocity = new Vector3(rigidBody.velocity.x, 0, rigidBody.velocity.z);
             Vector3 force = transform.up * jumpForce;
-            _rb.AddForce(force, ForceMode.Force);
+            rigidBody.AddForce(force, ForceMode.Force);
         }
     }
 
@@ -149,7 +153,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 move = (dir * moveSpeed * Time.deltaTime);
         move = Vector3.ClampMagnitude(move, MaxMoveSpeed);
-        _rb.velocity = new Vector3(move.x, _rb.velocity.y, move.z);
+        rigidBody.velocity = new Vector3(move.x, rigidBody.velocity.y, move.z);
     }
 
     public float SetInputX(float x)
@@ -190,12 +194,12 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.layer != 9)
         {
-            _rb.velocity = Vector3.zero;
-            _rb.freezeRotation = _rb;
+            rigidBody.velocity = Vector3.zero;
+            rigidBody.freezeRotation = rigidBody;
         }
         else
         {
-            _rb.velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
+            rigidBody.velocity = new Vector3(rigidBody.velocity.x, 0, rigidBody.velocity.z);
         }
     }
 
@@ -228,7 +232,7 @@ public class PlayerController : MonoBehaviour
         isOnSlope = Vector3.Angle(Vector3.up, normalHit) >= slopeLimit;
         if (isOnSlope)
         {
-            _rb.velocity += new Vector3(normalHit.x * slideVelocity, -slideForceDown, normalHit.z * slideVelocity) * Time.deltaTime;
+            rigidBody.velocity += new Vector3(normalHit.x * slideVelocity, -slideForceDown, normalHit.z * slideVelocity) * Time.deltaTime;
         }
     }
 }
