@@ -17,6 +17,7 @@ public class CanvasController : MonoBehaviour
     public static float seconds;
     public static float minute;
     public static float hundredths;
+    public static bool lose = false;
     public float maxMinuteTime;
     public bool hack;
     public bool dash;
@@ -71,6 +72,7 @@ public class CanvasController : MonoBehaviour
             hundredths = 0;
             minute = 0;
             seconds = 0;
+            lose = true;
         }
 
         if (hundredths <= 0 && seconds > 0)

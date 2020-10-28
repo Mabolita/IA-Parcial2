@@ -58,6 +58,7 @@ public class PlayerAnimator : MonoBehaviour
         {
             anim.SetBool("Idle",false);
             anim.SetBool("Win",true);
+            
         }
 
         if (_trigcoll.gameObject.CompareTag("Bullet") || _trigcoll.gameObject.CompareTag("Death"))
