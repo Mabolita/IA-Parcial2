@@ -101,9 +101,11 @@ public class EnemyAI : MonoBehaviour
             if (Physics.Raycast(transform.position, dirToPlayer, out hit, visionRange.radius, _lm))
             {
                 playerInSight = hit.transform.gameObject.layer == 8;
+                distanceToShoot *= 2;
             }
             else
             {
+                distanceToShoot /= 2;
                 return false;
             }
 
@@ -147,7 +149,10 @@ public class EnemyAI : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.blue;
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, transform.forward * distanceToShoot);
         Gizmos.DrawWireSphere(transform.position, distanceToShoot);
+        Gizmos.DrawRay(transform.position, Quaternion.Euler(0, viewAngle / 2, 0) * transform.forward * distanceToShoot);
+        Gizmos.DrawRay(transform.position, Quaternion.Euler(0, -viewAngle / 2, 0) * transform.forward * distanceToShoot);
     }
 }

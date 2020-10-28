@@ -796,7 +796,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 7
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &4774615370571255567
 Rigidbody:
@@ -829,8 +829,8 @@ MonoBehaviour:
   minIdleTime: 3
   maxIdleTime: 5
   fireRate: 1.5
-  viewAngle: 45
-  distanceToShoot: 1
+  viewAngle: 100
+  distanceToShoot: 4.6
   _lm:
     serializedVersion: 2
     m_Bits: 823

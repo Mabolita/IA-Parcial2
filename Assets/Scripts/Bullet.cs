@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 2;
+    public float speed;
+    public float maxSpeed;
     public Transform enemy;
     private void Update()
     {
         transform.up = Vector3.ProjectOnPlane(transform.up, Vector3.up);
-        transform.position += transform.up * speed * Time.deltaTime;
+        transform.position += transform.up * Random.Range(speed,maxSpeed) * Time.deltaTime;
         if (Vector3.Distance(enemy.position, transform.position) > 20000)
         {
             Destroy(gameObject);
@@ -18,6 +19,9 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        if (other.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
