@@ -3,15 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class SceneLoader : MonoBehaviour
 {
+    public TextMeshProUGUI gearsText;
     public Image subMenuImage1;
     public Image subMenuImage2;
     public static SceneLoader Instance { get; private set; }
 
+
+    private CanvasController canvasController;
     private AsyncOperation _loadSceneOperation;
 
+    private void Start()
+    {
+        gearsText = canvasController.gearsText;
+    }
 
     //Cargar escenas
     public void Menu()
