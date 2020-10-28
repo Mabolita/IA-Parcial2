@@ -217,7 +217,10 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Plataform"))
         {
-            transform.parent = collision.transform;
+            if (!GetComponent<Waypoints>().isCarPlatform)
+            {
+                transform.parent = collision.transform;
+            }
         }
     }
 
@@ -250,7 +253,10 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Plataform"))
         {
-            transform.parent = null;
+            if (!GetComponent<Waypoints>().isCarPlatform)
+            {
+                transform.parent = null;
+            }
         }
     }
 
