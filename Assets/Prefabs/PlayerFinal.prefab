@@ -1475,6 +1475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 0}
+  tags: []
   lm:
     serializedVersion: 2
     m_Bits: 55
@@ -1490,6 +1491,9 @@ MonoBehaviour:
   Sensitivity: 100
   yLimit: 45
   xLimit: 360
+  rangeHack: 0
+  Dash: 0
+  hack: 0
 --- !u!136 &6913268566644610744
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1500,10 +1504,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.21252894
-  m_Height: 1.8258958
+  m_Radius: 0.2
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0.8974006, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &6913268566644610747
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1519,7 +1523,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!95 &6913268566644610746
 Animator:
   serializedVersion: 3
@@ -1570,8 +1574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bedb4b803934694439603e61b5b0ddcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 12.93
-  player: {fileID: 6913268566644610750}
+  _rangeHack: 0
 --- !u!1 &7501291302674889719
 GameObject:
   m_ObjectHideFlags: 0
