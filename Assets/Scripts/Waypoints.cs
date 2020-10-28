@@ -39,7 +39,6 @@ public class Waypoints : MonoBehaviour
         {
             target.position = (target.position == start) ? end : start;
             _lookRight = !_lookRight;
-            transform.Rotate(0, 180, 0);
         }
         else
         {
