@@ -89,7 +89,7 @@ public class CanvasController : MonoBehaviour
         }
         else
         {
-            currentHundredths = hundredths.ToString().Substring(2, 5);
+            currentHundredths = hundredths.ToString().Substring(2, 2);
         }
         timeText.text = minute + ":" + seconds + ":" + currentHundredths;
         gearsText.text = gearsCount.ToString();
