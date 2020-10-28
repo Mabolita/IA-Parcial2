@@ -11,7 +11,7 @@ public class EnemyAI : MonoBehaviour
     public float distanceToShoot;
     public LayerMask _lm;
     public bool hack;
-    private bool isTreeExecuted;
+
     public float speed; 
 
     public Transform bulletSpawn;
@@ -32,7 +32,7 @@ public class EnemyAI : MonoBehaviour
     public StateMachine sm;
     public EnemyDecisionTree enemyTree;
     public AudioSource audioSource;
-    public AudioClip hackSound, shootSound;
+    public AudioClip shootSound;
 
     void Awake()
     {

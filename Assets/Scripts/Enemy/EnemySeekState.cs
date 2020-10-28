@@ -46,7 +46,6 @@ public class EnemySeekState : EnemyState
         }
 
         float speedMulti = minDistance / obstacleAvoidanceDistance;
-        _enemy.animator.SetFloat("Speed", speedMulti);
         avoidance.Normalize();
     }
 }

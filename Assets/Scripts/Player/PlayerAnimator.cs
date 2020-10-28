@@ -8,7 +8,7 @@ public class PlayerAnimator : MonoBehaviour
     public Collider trigcoll;
     private Rigidbody rb;
     private PlayerController player;
-    
+  
     void Start()
     {
         player = GetComponent<PlayerController>();
@@ -19,7 +19,6 @@ public class PlayerAnimator : MonoBehaviour
 
     void Update()
     {
-        //CAMINATA
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             anim.SetBool("Walk", true);
@@ -31,8 +30,6 @@ public class PlayerAnimator : MonoBehaviour
             }
         }
 
-        //SALTO Y DASH
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             anim.SetBool("Walk", false);
@@ -42,8 +39,7 @@ public class PlayerAnimator : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            //anim.SetBool("Walk", true);
-            if (player.Dash && !player.hack)
+            if (player.Dash && !player.hack && player.powerTimer <= player.powerTimerMax)
             {
                 anim.SetTrigger("Dash");
                 player.audioSource.PlayOneShot(player.dashSound);

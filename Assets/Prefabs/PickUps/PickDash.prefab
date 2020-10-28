@@ -95,12 +95,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationSpeed: 0.5
-  coll: {fileID: -407594834022263221}
-  PS: {fileID: 6123748000685185081, guid: 989cdfeaed24849aeb024d48edc2bb3c, type: 3}
   height: 0
   speed: 0
+  coll: {fileID: -407594834022263221}
+  PS: {fileID: 6123748000685185081, guid: 989cdfeaed24849aeb024d48edc2bb3c, type: 3}
   powerDash: 1
   powerHack: 0
+  _audioClip: {fileID: 0}
 --- !u!135 &-407594834022263221
 SphereCollider:
   m_ObjectHideFlags: 0
