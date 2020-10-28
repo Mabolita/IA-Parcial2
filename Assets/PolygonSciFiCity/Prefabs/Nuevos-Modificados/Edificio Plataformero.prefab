@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 3070044567946136748}
   - component: {fileID: 3071195409738885668}
   - component: {fileID: 3071452489618022030}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Bld_LandingPad_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

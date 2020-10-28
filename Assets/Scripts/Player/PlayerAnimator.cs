@@ -44,7 +44,7 @@ public class PlayerAnimator : MonoBehaviour
                 anim.SetTrigger("Dash");
                 player.audioSource.PlayOneShot(player.dashSound);
             }
-            else
+            else if(!player.Dash && player.hack && player.powerTimer <= player.powerTimerMax)
             {
                 anim.SetTrigger("Hack");
                 player.audioSource.PlayOneShot(player.hackSound);
