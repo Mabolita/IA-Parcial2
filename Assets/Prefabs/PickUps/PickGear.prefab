@@ -109,10 +109,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationSpeed: 0.5
-  coll: {fileID: -1895915482917871073}
-  PS: {fileID: 6329748598232997590, guid: 61af9e2193a1d4cd08c2f7b9b7dfd156, type: 3}
   height: 0
   speed: 0
+  coll: {fileID: -1895915482917871073}
+  PS: {fileID: 6329748598232997590, guid: 61af9e2193a1d4cd08c2f7b9b7dfd156, type: 3}
+  powerDash: 0
+  powerHack: 0
 --- !u!135 &-1895915482917871073
 SphereCollider:
   m_ObjectHideFlags: 0
