@@ -33,7 +33,7 @@ public class PlayerAnimator : MonoBehaviour
             anim.SetFloat("SpeedZ", Input.GetAxis("Vertical"));
             anim.SetFloat("SpeedX", Input.GetAxis("Horizontal"));
             
-            if (step == true)
+            if (step == true && player.rigidBody.velocity.y==0)
             {
                 player.audioSource.PlayOneShot(player.walkSound);
                 step = false;

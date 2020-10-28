@@ -831,12 +831,12 @@ MonoBehaviour:
   fireRate: 1.5
   viewAngle: 100
   distanceToShoot: 4.6
-  timeMaxSeek: 10
-  timeSeek: 3
   _lm:
     serializedVersion: 2
-    m_Bits: 823
+    m_Bits: 311
   hack: 0
+  view: 0
+  radius: 0
   speed: 3
   bulletSpawn: {fileID: 9106779874680083710}
   hackParticleSpawn: {fileID: 8719974972867759009}

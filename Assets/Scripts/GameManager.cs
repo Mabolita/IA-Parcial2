@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         Cursor.lockState=CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void Start()
@@ -62,12 +63,14 @@ public class GameManager : MonoBehaviour
     public void Lose()
     {
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         SceneManager.LoadScene("Lose");
     }
 
     public void Win()
     {
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         SceneManager.LoadScene("Win");
         audioSource.clip = null;
 

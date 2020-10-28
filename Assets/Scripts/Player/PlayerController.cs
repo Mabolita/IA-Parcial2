@@ -220,6 +220,13 @@ public class PlayerController : MonoBehaviour
         {
                 transform.parent = collision.transform;
         }
+        if (collision.gameObject.layer == 9)
+        {
+            if (jumps != 0 && !isOnSlope)
+            {
+                jumps = 0;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -236,15 +243,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.layer == 9)
-        {
-            if (jumps != 0 && !isOnSlope)
-            {
-                jumps = 0;
-            }
             normalHit = collision.GetContact(0).normal;
             SlideDown();
-        }
+
     }
 
     private void OnCollisionExit(Collision collision)
