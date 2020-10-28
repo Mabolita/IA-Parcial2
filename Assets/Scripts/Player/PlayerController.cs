@@ -268,4 +268,10 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, rangeHack);
     }
+
+    void OnAnimatorWin()
+    {
+        Debug.Log("llamo al win");
+        GameManager.Instance.Win();
+    }
 }
