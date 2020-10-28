@@ -38,9 +38,13 @@ public class PlayerAnimator : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            anim.SetBool("Walk", true);
-            anim.SetTrigger("Dash");
-            print("Dash");
+            //anim.SetBool("Walk", true);
+            if (player.Dash && !player.hack)
+            {
+                anim.SetTrigger("Dash");
+            }
+            else
+                anim.SetTrigger("Hack");
         }
     }
 

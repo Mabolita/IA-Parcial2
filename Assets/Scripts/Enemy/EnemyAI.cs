@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
     private bool isTreeExecuted;
 
     public Transform bulletSpawn;
+    public Transform hackParticleSpawn;
     public GameObject bulletPrefab;
     public ParticleSystem hackParticle;
     public PlayerController player;
@@ -53,14 +54,10 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         sm.Update();
-        if (!hack)
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-            if (!isTreeExecuted)
-            {
-                enemyTree._init.Execute();
-            }
+            ActionHacked();
         }
-
     }
 
     private void OnTriggerStay(Collider other)
@@ -88,6 +85,11 @@ public class EnemyAI : MonoBehaviour
         Bullet bullet = Object.Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation).GetComponent<Bullet>();
         bullet.transform.up = bulletSpawn.forward;
         bullet.enemy = transform;
+    }
+
+    public void OnAnimatorHack()
+    {
+        enemyTree._init.Execute();
     }
 
     bool LineOfSight()
