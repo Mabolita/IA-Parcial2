@@ -87,8 +87,9 @@ public class PlayerController : MonoBehaviour
             if (timeDead >= maxTimeDead)
             {
                 transform.position = GameManager.Instance.CurrentCheckPoint.position;
-                capsuleCollider.center = new Vector3(0, 2f, 0);
+                capsuleCollider.center = new Vector3(0, 1f, 0);
                 powerTimer = powerTimerMax;
+                timeDead = 0;
                 dead = false;
             }
         }
@@ -129,7 +130,7 @@ public class PlayerController : MonoBehaviour
     public void FixMove()
     {
 
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && !dead)
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && !dead)
         {
             Move();
         }
@@ -227,6 +228,7 @@ public class PlayerController : MonoBehaviour
             if (other.gameObject.CompareTag(tag))
             {
                 capsuleCollider.center = new Vector3(0, 1.5f, 0);
+                dead = true;
             }
         }
     }
