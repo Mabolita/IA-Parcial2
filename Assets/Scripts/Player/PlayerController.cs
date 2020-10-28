@@ -202,6 +202,10 @@ public class PlayerController : MonoBehaviour
         {
             rigidBody.velocity = new Vector3(rigidBody.velocity.x, 0, rigidBody.velocity.z);
         }
+        if (collision.gameObject.CompareTag("Plataform"))
+        {
+            transform.parent = collision.transform;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -225,6 +229,14 @@ public class PlayerController : MonoBehaviour
             }
             normalHit = collision.GetContact(0).normal;
             SlideDown();
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Plataform"))
+        {
+            transform.parent = null;
         }
     }
 
