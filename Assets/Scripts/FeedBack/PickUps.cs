@@ -16,11 +16,8 @@ public class PickUps : MonoBehaviour
     AudioSource _audioSource;
     public AudioClip _audioClip;
 
-    private CanvasController _cc;
-
     private void Awake()
     {
-        _cc = FindObjectOfType<CanvasController>();
         _audioSource = GetComponent<AudioSource>();
     }
 
@@ -39,7 +36,7 @@ public class PickUps : MonoBehaviour
             _audioSource.PlayOneShot(_audioClip);
             gameObject.GetComponent<MeshRenderer>().enabled=false;
             Destroy(gameObject, _audioClip.length);
-            _cc.gearsCount++;
+            CanvasController.gearsCount++;
         }
     }
         

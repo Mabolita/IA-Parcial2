@@ -13,17 +13,19 @@ public class CanvasController : MonoBehaviour
     public Image hackImage;
     public Image hackFillImage;
     public PlayerController pc;
-    public int gearsCount;
-    public float seconds;
-    public float minute;
-    public float hours;
+    public static int gearsCount;
+    public static float seconds;
+    public static float minute;
+    public static float hundredths;
+    public float maxMinuteTime;
     public bool hack;
     public bool dash;
     public bool activeImage;
 
     private void Start()
     {
-        timeText.text = hours + ":" + minute + ":" + seconds;
+        minute = maxMinuteTime;
+        timeText.text = minute + ":" + seconds + ":" + hundredths;
         gearsText.text = gearsCount.ToString();
     }
 
@@ -59,21 +61,37 @@ public class CanvasController : MonoBehaviour
                 }
             }
         }
-
-        seconds += Time.deltaTime;
-
-        if (seconds >= 60)
+        if (minute > 0 && seconds > 0)
         {
-            seconds = 0;
-            minute++;
+            hundredths -= Time.deltaTime;
         }
-        if (minute >= 60)
+        else if (minute < 0 && seconds < 0 && hundredths < 0)
         {
+            hundredths = 0;
             minute = 0;
-            hours++;
+            seconds = 0;
         }
 
-        timeText.text = hours + ":" + minute + ":" + (int)seconds;
+        if (hundredths <= 0 && seconds > 0)
+        {
+            hundredths = 0.99999f;
+            seconds--;
+        }
+        if (seconds <= 0 && minute > 0)
+        {
+            seconds = 60;
+            minute--;
+        }
+        string currentHundredths = hundredths.ToString();
+        if (hundredths <= 0)
+        {
+            currentHundredths = "0";
+        }
+        else
+        {
+            currentHundredths = hundredths.ToString().Substring(2, 5);
+        }
+        timeText.text = minute + ":" + seconds + ":" + currentHundredths;
         gearsText.text = gearsCount.ToString();
     }
 }
