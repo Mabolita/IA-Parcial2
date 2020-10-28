@@ -46,12 +46,18 @@ public class PickUps : MonoBehaviour
         {
             if (powerDash)
             {
+                ParticleSystem obj = Instantiate(PS, transform.position, transform.rotation);
+                obj.Play();
+                Destroy(obj.gameObject, 1f);
                 collision.gameObject.GetComponent<PlayerController>().Dash = true;
                 FindObjectOfType<CanvasController>().dash = true;
                 Destroy(gameObject);
             }
             else if (powerHack)
             {
+                ParticleSystem obj = Instantiate(PS, transform.position, transform.rotation);
+                obj.Play();
+                Destroy(obj.gameObject, 1f);
                 collision.gameObject.GetComponent<PlayerController>().hack = true;
                 FindObjectOfType<CanvasController>().hack = true;
                 Destroy(gameObject);
