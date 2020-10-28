@@ -44,6 +44,7 @@ public class EnemyAI : MonoBehaviour
         sm.AddState(new EnemyHackedState(sm, this));
         visionRange = GetComponent<SphereCollider>();
         animator = GetComponent<Animator>();
+        player = FindObjectOfType<PlayerController>();
         enemyTree = new EnemyDecisionTree(this);
         enemyTree.SetNodes();
     }
@@ -56,10 +57,6 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         sm.Update();
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            ActionHacked();
-        }
     }
 
     private void OnTriggerStay(Collider other)
