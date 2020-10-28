@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         if (CanvasController.lose == true)
         {
             Lose();
+            CanvasController.lose = false;
         }
 
         if (Input.GetKeyDown(KeyCode.O))

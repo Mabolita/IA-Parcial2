@@ -19,6 +19,7 @@ public class CanvasController : MonoBehaviour
     public static float hundredths;
     public static bool lose = false;
     public float maxMinuteTime;
+    public float speedtime;
     public bool hack;
     public bool dash;
     public bool activeImage;
@@ -65,9 +66,9 @@ public class CanvasController : MonoBehaviour
         }
         if (!lose)
         {
-            hundredths -= Time.deltaTime;
+            hundredths -= Time.deltaTime* speedtime;
         }
-        if (minute < 0 && seconds < 0 && hundredths < 0)
+        if (minute <= 0 && seconds <= 0 && hundredths <= 0)
         {
             hundredths = 0;
             minute = 0;
