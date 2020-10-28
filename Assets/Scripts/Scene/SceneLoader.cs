@@ -30,7 +30,7 @@ public class SceneLoader : MonoBehaviour
 
     private void Start()
     {
-        gearsText = canvasController.gearsText;
+        gearsText.text = GameManager.Instance.points.ToString();
     }
 
     //Cargar escenas

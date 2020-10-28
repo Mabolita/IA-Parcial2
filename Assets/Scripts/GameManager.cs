@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public int points;
     [SerializeField] private Transform _spawnPoint;
-
+    AudioSource audioSource;
     private Transform _currentCheckpoint;
 
     public Transform CurrentCheckPoint => _currentCheckpoint;
@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _currentCheckpoint = _spawnPoint;
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -42,6 +43,11 @@ public class GameManager : MonoBehaviour
         if (CanvasController.lose == true)
         {
             Lose();
+        }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            Win();
         }
 
     }
@@ -59,5 +65,7 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
         SceneManager.LoadScene("Win");
+        audioSource.clip = null;
+
     }
 }
