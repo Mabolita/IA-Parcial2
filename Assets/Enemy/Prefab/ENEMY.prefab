@@ -831,6 +831,8 @@ MonoBehaviour:
   fireRate: 1.5
   viewAngle: 100
   distanceToShoot: 4.6
+  timeMaxSeek: 10
+  timeSeek: 3
   _lm:
     serializedVersion: 2
     m_Bits: 823

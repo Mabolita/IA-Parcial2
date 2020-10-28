@@ -107,10 +107,12 @@ public class EnemyAI : MonoBehaviour
             }
             else
             {
+                timeSeek = timeMaxSeek;
                 return false;
             }
 
         }
+                //timeSeek = 0;
         return playerInSight;
     }
 
@@ -142,7 +144,6 @@ public class EnemyAI : MonoBehaviour
     {
         if (timeSeek >= timeMaxSeek)
         {
-            timeSeek = 0;
             return LineOfSight();
         }
         else
