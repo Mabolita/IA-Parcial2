@@ -26,6 +26,12 @@ public class Waypoints : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
+            if (isCarPlatform)
+            {
+                transform.forward = (target.position - transform.position).normalized;
+            }
+
+
             if (transform.position == target.position)
             {
                 Flip();
