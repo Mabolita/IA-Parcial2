@@ -9,10 +9,10 @@ public class EnemyAI : MonoBehaviour
     public float fireRate = 1.5f;
     public float viewAngle = 45;
     public float distanceToShoot;
-    public float timeMaxSeek;
-    public float timeSeek;
     public LayerMask _lm;
     public bool hack;
+    public bool view;
+    public float radius;
 
     public float speed;
 
@@ -53,13 +53,27 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
-        timeSeek = timeMaxSeek;
         enemyTree._init.Execute();
+        radius = GetComponent<SphereCollider>().radius;
     }
 
     void Update()
     {
         sm.Update();
+        if (view)
+        {
+            if (GetComponent<SphereCollider>().radius < radius * 2)
+            {
+                GetComponent<SphereCollider>().radius *= 2;
+            }
+        }
+        else
+        {
+            if (GetComponent<SphereCollider>().radius > radius / 2)
+            {
+                GetComponent<SphereCollider>().radius /= 2;
+            }
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -107,12 +121,11 @@ public class EnemyAI : MonoBehaviour
             }
             else
             {
-                timeSeek = timeMaxSeek;
+                view = false;
                 return false;
             }
 
         }
-                //timeSeek = 0;
         return playerInSight;
     }
 
@@ -137,19 +150,13 @@ public class EnemyAI : MonoBehaviour
 
     public bool QuestionDistanceShoot()
     {
+        view = true;
         return Vector3.Distance(transform.position, player.transform.position) < distanceToShoot;
     }
 
     public bool QuestionIsPlayerOnSight()
     {
-        if (timeSeek >= timeMaxSeek)
-        {
-            return LineOfSight();
-        }
-        else
-        {
-            return false;
-        }
+        return LineOfSight();
     }
 
     public bool QuestionHack()
