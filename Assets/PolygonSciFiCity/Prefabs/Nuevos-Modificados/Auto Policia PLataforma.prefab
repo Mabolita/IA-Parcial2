@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 8601445126831308471}
   m_Layer: 0
   m_Name: Auto Policia PLataforma
-  m_TagString: Untagged
+  m_TagString: Plataform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
