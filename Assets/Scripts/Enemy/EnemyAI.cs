@@ -9,10 +9,12 @@ public class EnemyAI : MonoBehaviour
     public float fireRate = 1.5f;
     public float viewAngle = 45;
     public float distanceToShoot;
+    public float timeMaxSeek;
+    public float timeSeek;
     public LayerMask _lm;
     public bool hack;
 
-    public float speed; 
+    public float speed;
 
     public Transform bulletSpawn;
     public Transform hackParticleSpawn;
@@ -139,7 +141,15 @@ public class EnemyAI : MonoBehaviour
 
     public bool QuestionIsPlayerOnSight()
     {
-        return LineOfSight();
+        if (timeSeek >= timeMaxSeek)
+        {
+            timeSeek = 0;
+            return LineOfSight();
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public bool QuestionHack()
