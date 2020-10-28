@@ -177,8 +177,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: LOADING...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0423712a7ed3147beaf75b84c703126d, type: 2}
-  m_sharedMaterial: {fileID: -6737868663662463462, guid: 0423712a7ed3147beaf75b84c703126d,
+  m_fontAsset: {fileID: 11400000, guid: dc0d24aad0b224dfa91bae3d6c3465be, type: 2}
+  m_sharedMaterial: {fileID: -6737868663662463462, guid: dc0d24aad0b224dfa91bae3d6c3465be,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -692,7 +692,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 20681bdec4cc048a2805f9d890fb9112, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 14bef2e4ae5af4ad8a76773a7ae42884, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -856,7 +856,7 @@ SpriteRenderer:
   m_Size: {x: 6.77, y: 3.34}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1278624049
