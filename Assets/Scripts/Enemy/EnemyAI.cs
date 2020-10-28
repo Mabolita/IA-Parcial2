@@ -78,7 +78,7 @@ public class EnemyAI : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent<PlayerController>())
+        if (other.GetComponent<PlayerController>() && !hack)
         {
             playerInRange = true;
             player = other.GetComponent<PlayerController>();
