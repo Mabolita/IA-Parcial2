@@ -44,7 +44,7 @@ public class EnemySeekState : EnemyState
                 break;
             }
         }
-
+        _enemy.timeSeek += Time.deltaTime;
         float speedMulti = minDistance / obstacleAvoidanceDistance;
         avoidance.Normalize();
     }
