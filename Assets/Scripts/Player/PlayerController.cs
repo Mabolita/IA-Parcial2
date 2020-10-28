@@ -169,7 +169,6 @@ public class PlayerController : MonoBehaviour
         move = Vector3.ClampMagnitude(move, MaxMoveSpeed);
         rigidBody.velocity = new Vector3(move.x, rigidBody.velocity.y, move.z);
 
-        Debug.Log(rigidBody.velocity.magnitude);
     }
 
     public float SetInputX(float x)

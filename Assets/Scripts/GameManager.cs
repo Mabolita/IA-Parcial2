@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
         DontDestroyOnLoad(gameObject);
+        Cursor.lockState=CursorLockMode.Locked;
     }
 
     private void Start()
@@ -46,10 +47,10 @@ public class GameManager : MonoBehaviour
             CanvasController.lose = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            Win();
-        }
+        //if (Input.GetKeyDown(KeyCode.O))
+        //{
+        //    Win();
+        //}
 
     }
 
@@ -60,11 +61,13 @@ public class GameManager : MonoBehaviour
 
     public void Lose()
     {
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("Lose");
     }
 
     public void Win()
     {
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("Win");
         audioSource.clip = null;
 
