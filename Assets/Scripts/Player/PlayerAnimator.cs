@@ -52,6 +52,11 @@ public class PlayerAnimator : MonoBehaviour
         }
     }
 
+    void OnAnimatorWin()
+    {
+        GameManager.Instance.Win();
+    }
+
     private void OnTriggerEnter(Collider _trigcoll)
     {
         if (_trigcoll.gameObject.CompareTag("Win"))
