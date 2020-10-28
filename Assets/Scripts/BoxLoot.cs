@@ -8,6 +8,8 @@ public class BoxLoot : MonoBehaviour
     public GameObject dash;
     public GameObject hack;
     public float forceThrow;
+    public AudioSource audioSource;
+    public AudioClip  open;
 
     private bool drop;
     private RoulettePower _rp;
@@ -28,6 +30,7 @@ public class BoxLoot : MonoBehaviour
     {
         if (!drop)
         {
+            audioSource.PlayOneShot(open);
             GameObject currentPower = _rp.Run(powers);
             GameObject p = Instantiate(currentPower, spawn.position, spawn.rotation);
             Rigidbody prb = p.GetComponent<Rigidbody>();
