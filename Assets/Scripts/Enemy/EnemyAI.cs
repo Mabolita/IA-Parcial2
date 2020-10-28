@@ -53,6 +53,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
+        timeSeek = timeMaxSeek;
         enemyTree._init.Execute();
     }
 
@@ -103,11 +104,9 @@ public class EnemyAI : MonoBehaviour
             if (Physics.Raycast(transform.position, dirToPlayer, out hit, visionRange.radius, _lm))
             {
                 playerInSight = hit.transform.gameObject.layer == 8;
-                distanceToShoot *= 2;
             }
             else
             {
-                distanceToShoot /= 2;
                 return false;
             }
 
