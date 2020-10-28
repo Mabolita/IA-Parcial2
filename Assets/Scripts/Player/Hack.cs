@@ -4,21 +4,17 @@ using UnityEngine;
 
 public class Hack : MonoBehaviour
 {
-    public float range;
-    public Transform player;
+    public float _rangeHack;
 
-    private void Update()
+    public Hack(float rangeHack)
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            ActiveHack();
-        }
+        _rangeHack = rangeHack;
     }
 
-    public void ActiveHack()
+    public void ActiveHack(Transform player)
     {
         List<EnemyAI> enemies = new List<EnemyAI>();
-        RaycastHit[] hits = Physics.SphereCastAll(player.position, range, player.forward, 10);
+        RaycastHit[] hits = Physics.SphereCastAll(player.position, _rangeHack, player.forward, 10);
         if (hits.Length > 0)
         {
             foreach (var item in hits)
@@ -32,11 +28,5 @@ public class Hack : MonoBehaviour
                 enemy.hack = true;
             }
         }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(player.position, range);
     }
 }
