@@ -37,7 +37,7 @@ public class EnemyHackedState : EnemyState
     public override void Sleep()
     {
         base.Sleep();
+        currentHackDuration = 0;
         _enemy.animator.SetBool("Hack", false);
-        _enemy.hack = false;
     }
 }

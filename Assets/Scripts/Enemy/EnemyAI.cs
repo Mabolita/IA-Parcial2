@@ -106,6 +106,8 @@ public class EnemyAI : MonoBehaviour
 
     public void OnAnimatorHack()
     {
+        Debug.Log("asd");
+        hack = false;
         enemyTree._init.Execute();
     }
 
