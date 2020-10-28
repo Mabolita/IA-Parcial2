@@ -65,13 +65,15 @@ public class EnemyAI : MonoBehaviour
             if (GetComponent<SphereCollider>().radius < radius * 2)
             {
                 GetComponent<SphereCollider>().radius *= 2;
+                viewAngle *= 1.5f;
             }
         }
         else
         {
-            if (GetComponent<SphereCollider>().radius > radius / 2)
+            if (GetComponent<SphereCollider>().radius == radius * 2)
             {
                 GetComponent<SphereCollider>().radius /= 2;
+                viewAngle /= 1.5f;
             }
         }
     }

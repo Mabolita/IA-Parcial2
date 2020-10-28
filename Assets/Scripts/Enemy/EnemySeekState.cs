@@ -20,7 +20,7 @@ public class EnemySeekState : EnemyState
     public override void Execute()
     {
         base.Execute();
-        _enemy.animator.SetFloat("Speed", _enemy.speed * 3f);
+        _enemy.animator.SetFloat("Speed", _enemy.speed);
         avoidance = Vector3.zero;
         float minDistance = obstacleAvoidanceDistance;
         RaycastHit ray;
