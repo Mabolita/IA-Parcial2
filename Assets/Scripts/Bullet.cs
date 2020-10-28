@@ -7,6 +7,11 @@ public class Bullet : MonoBehaviour
     public float speed;
     public float maxSpeed;
     public Transform enemy;
+
+    private void Start()
+    {
+        Destroy(gameObject, 5);
+    }
     private void Update()
     {
         transform.up = Vector3.ProjectOnPlane(transform.up, Vector3.up);
