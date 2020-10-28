@@ -25,6 +25,10 @@ public class PlayerAnimator : MonoBehaviour
             anim.SetBool("Walk", true);
             anim.SetFloat("SpeedZ", Input.GetAxis("Vertical"));
             anim.SetFloat("SpeedX", Input.GetAxis("Horizontal"));
+            if (!player.audioSource.isPlaying)
+            {
+                player.audioSource.PlayOneShot(player.walkSound);
+            }
         }
 
         //SALTO Y DASH

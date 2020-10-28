@@ -27,6 +27,7 @@ public class CanvasController : MonoBehaviour
         minute = maxMinuteTime;
         timeText.text = minute + ":" + seconds + ":" + hundredths;
         gearsText.text = gearsCount.ToString();
+        pc = FindObjectOfType<PlayerController>();
     }
 
     private void Update()

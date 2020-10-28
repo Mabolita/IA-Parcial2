@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Sonidos")]
     public AudioSource audioSource;
-    public AudioClip jumpSound, hackSound, deathSound, dashSound;
+    public AudioClip jumpSound, hackSound, deathSound, dashSound,walkSound;
 
     [Header("Variables")]
     public int maxCantJumps;
@@ -107,6 +107,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetAxis("Mouse Y") != 0 || Input.GetAxis("Mouse X") != 0)
         {
             _cc.RotateCam();
+
         }
 
         FixMove();
