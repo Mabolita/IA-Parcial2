@@ -13,12 +13,15 @@ public class PickUps : MonoBehaviour
     Vector3 startPos;
     public bool powerDash;
     public bool powerHack;
+    AudioSource _audioSource;
+    public AudioClip _audioClip;
 
     private CanvasController _cc;
 
     private void Awake()
     {
         _cc = FindObjectOfType<CanvasController>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -32,9 +35,10 @@ public class PickUps : MonoBehaviour
         {
             ParticleSystem obj = Instantiate(PS, transform.position, transform.rotation);
             obj.Play();
-            Destroy(obj.gameObject, 3f);
-            gameObject.SetActive(false);
-            Destroy(gameObject, 5f);
+            Destroy(obj.gameObject, 1f);
+            _audioSource.PlayOneShot(_audioClip);
+            gameObject.GetComponent<MeshRenderer>().enabled=false;
+            Destroy(gameObject, _audioClip.length);
             _cc.gearsCount++;
         }
     }
