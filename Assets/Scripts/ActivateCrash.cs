@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ActivateCrash : MonoBehaviour
 {
-    public GameObject aguanteCrash, credits, exitButton, randomButton;
+    public GameObject aguanteCrash, credits, exitButton, randomButton,crash;
 
     public void Activate()
     {
@@ -14,5 +14,6 @@ public class ActivateCrash : MonoBehaviour
         credits.SetActive(!credits.activeSelf);
         exitButton.SetActive(!exitButton.activeSelf);
         randomButton.SetActive(!randomButton.activeSelf);
+        crash.SetActive(!crash.activeSelf);
     }
 }
