@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.UIElements;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -108,6 +107,7 @@ public class PlayerController : MonoBehaviour
             if (hack)
             {
                 _h.ActiveHack(transform);
+                
             }
             powerTimer = 0;
         }
@@ -168,6 +168,8 @@ public class PlayerController : MonoBehaviour
         Vector3 move = (dir * moveSpeed * Time.deltaTime);
         move = Vector3.ClampMagnitude(move, MaxMoveSpeed);
         rigidBody.velocity = new Vector3(move.x, rigidBody.velocity.y, move.z);
+
+        Debug.Log(rigidBody.velocity.magnitude);
     }
 
     public float SetInputX(float x)

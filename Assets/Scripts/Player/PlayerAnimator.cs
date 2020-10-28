@@ -51,12 +51,12 @@ public class PlayerAnimator : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            if (player.Dash && !player.hack && player.powerTimer <= player.powerTimerMax)
+            if (player.Dash && !player.hack && player.powerTimer >= player.powerTimerMax)
             {
                 anim.SetTrigger("Dash");
                 player.audioSource.PlayOneShot(player.dashSound);
             }
-            else if(!player.Dash && player.hack && player.powerTimer <= player.powerTimerMax)
+            else if(!player.Dash && player.hack && player.powerTimer >= player.powerTimerMax)
             {
                 anim.SetTrigger("Hack");
                 player.audioSource.PlayOneShot(player.hackSound);

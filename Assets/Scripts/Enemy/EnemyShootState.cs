@@ -25,7 +25,7 @@ public class EnemyShootState : EnemyState
                 Vector3.ProjectOnPlane(dirToPlayer, Vector3.up),
                 Vector3.ProjectOnPlane(_enemy.transform.forward, Vector3.up),
                 Vector3.up);
-        _enemy.animator.SetFloat("AngularSpeed", -angle / 5);
+        _enemy.animator.SetFloat("AngularSpeed", -angle / 3);
 
     }
 

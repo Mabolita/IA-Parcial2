@@ -89,7 +89,7 @@ public class EnemyAI : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<PlayerController>())
+        if (other.GetComponent<PlayerController>()&&!hack)
         {
             playerInRange = false;
             playerInSight = false;

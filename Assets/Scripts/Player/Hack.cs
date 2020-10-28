@@ -26,7 +26,9 @@ public class Hack : MonoBehaviour
             foreach (var enemy in enemies)
             {
                 enemy.hack = true;
+                enemy.enemyTree._init.Execute();
             }
         }
+      
     }
 }
