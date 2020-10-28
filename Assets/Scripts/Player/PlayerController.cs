@@ -88,14 +88,9 @@ public class PlayerController : MonoBehaviour
             {
                 transform.position = GameManager.Instance.CurrentCheckPoint.position;
                 capsuleCollider.center = new Vector3(0, 2f, 0);
+                powerTimer = powerTimerMax;
                 dead = false;
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Vector3 check = GameManager.Instance.CurrentCheckPoint.position;
-            transform.position = check;
         }
 
         if (powerTimer < powerTimerMax)
@@ -103,7 +98,7 @@ public class PlayerController : MonoBehaviour
             powerTimer += Time.deltaTime;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && powerTimer >= powerTimerMax)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && powerTimer >= powerTimerMax && !dead)
         {
             if (Dash)
             {
@@ -116,7 +111,7 @@ public class PlayerController : MonoBehaviour
             powerTimer = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !dead)
         {
             Jump();
         }
