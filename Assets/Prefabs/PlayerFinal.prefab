@@ -1584,6 +1584,7 @@ MonoBehaviour:
   dashSound: {fileID: 8300000, guid: 60ac80a086d79654eaeced4fefa3b464, type: 3}
   walkSound: {fileID: 8300000, guid: 87349c3d3a883594681a88b1de0b1ef2, type: 3}
   maxCantJumps: 2
+  maxTimeDead: 0
   jumpForce: 300
   slopeLimit: 44
   slideVelocity: 20
@@ -1644,12 +1645,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed by
-    Humanoid clips.\n\tTransform 'Root'\n\tTransform 'IndexFinger_02'\n\tTransform
-    'Elbow_R'\n\tTransform 'Finger_02'\n\tTransform 'Finger_03'\n\tTransform 'Ball_L'\n\tTransform
-    'Ball_R'\n\tTransform 'Clavicle_L'\n\tTransform 'Finger_01'\n\tTransform 'Neck'\n\tand
-    more ...\n\tFrom animation clip 'Death'"
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
