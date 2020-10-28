@@ -63,11 +63,11 @@ public class CanvasController : MonoBehaviour
                 }
             }
         }
-        if (minute > 0 && seconds > 0)
+        if (!lose)
         {
             hundredths -= Time.deltaTime;
         }
-        else if (minute < 0 && seconds < 0 && hundredths < 0)
+        if (minute < 0 && seconds < 0 && hundredths < 0)
         {
             hundredths = 0;
             minute = 0;
