@@ -23,7 +23,7 @@ public class PickUps : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(0, _rotationSpeed, 0);
+        transform.Rotate(0, _rotationSpeed, _rotationSpeed);
     }
 
     private void OnTriggerEnter(Collider coll)
