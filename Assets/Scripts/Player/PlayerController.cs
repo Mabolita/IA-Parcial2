@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
     public float yLimit = 45.0f;
     public float xLimit = 360.0f;
     public float rangeHack;
+    public float powerTimerMax;
+    public float powerTimer;
     public bool Dash;
     public bool hack;
 
@@ -62,6 +64,7 @@ public class PlayerController : MonoBehaviour
         yMaxLimit = yLimit;
         xMinLimit = -xLimit;
         xMaxLimit = xLimit;
+        powerTimer = powerTimerMax;
 
         //_anim.SetBool("Idle", true);
     }
@@ -74,7 +77,12 @@ public class PlayerController : MonoBehaviour
             transform.position = check;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (powerTimer < powerTimerMax)
+        {
+            powerTimer += Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && powerTimer >= powerTimerMax)
         {
             if (Dash)
             {
@@ -84,6 +92,7 @@ public class PlayerController : MonoBehaviour
             {
                 _h.ActiveHack(transform);
             }
+            powerTimer = 0;
         }
 
         if (Input.GetKeyDown(KeyCode.Space))

@@ -46,11 +46,13 @@ public class PickUps : MonoBehaviour
             if (powerDash)
             {
                 collision.gameObject.GetComponent<PlayerController>().Dash = true;
+                FindObjectOfType<CanvasController>().dash = true;
                 Destroy(gameObject);
             }
             else if (powerHack)
             {
                 collision.gameObject.GetComponent<PlayerController>().hack = true;
+                FindObjectOfType<CanvasController>().hack = true;
                 Destroy(gameObject);
             }
         }
