@@ -26,9 +26,10 @@ public class BoxAnimator : MonoBehaviour
         {
             anim.SetBool("OpenBox",true);
             print("Toco Player");
-            ParticleSystem obj = Instantiate(springPS, transform.position, transform.rotation);
-            obj.Play();
-            Destroy(obj.gameObject, 2f);
+            GetComponent<BoxLoot>().RandomPower();
+            //ParticleSystem obj = Instantiate(springPS, transform.position, transform.rotation);
+            //obj.Play();
+            //Destroy(obj.gameObject, 2f);
         }
 
     }

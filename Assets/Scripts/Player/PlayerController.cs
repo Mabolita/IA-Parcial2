@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private CameraController _cc;
     private CapsuleCollider capsuleCollider;
     private Dash _d;
+    private Hack _h;
     public Rigidbody _rb;
     private Animator _anim;
     private Vector3 normalHit;
@@ -39,6 +40,9 @@ public class PlayerController : MonoBehaviour
     public float Sensitivity = 100.0f;
     public float yLimit = 45.0f;
     public float xLimit = 360.0f;
+    public float rangeHack;
+    public bool Dash;
+    public bool hack;
 
 
 
@@ -48,6 +52,7 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
         _d = new Dash(lm, distance, transform, camPivot);
+        _h = new Hack(rangeHack);
         _cc = new CameraController(camPivot, xSensitivity, ySensitivity, yMinLimit, yMaxLimit, xMinLimit, xMaxLimit, yRot, xRot, transform);
 
 
@@ -71,7 +76,14 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            _d.DashC();
+            if (Dash)
+            {
+                _d.DashC();
+            }
+            if (hack)
+            {
+                _h.ActiveHack(transform);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
