@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &129276629749381565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7973064465011222378}
+  m_Layer: 0
+  m_Name: Plataforma pa arriba pa abajo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7973064465011222378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129276629749381565}
+  m_LocalRotation: {x: -0, y: 0.7071057, z: -0, w: 0.70710784}
+  m_LocalPosition: {x: 3.8799996, y: 21.720001, z: 0.11000013}
+  m_LocalScale: {x: 0.8958574, y: 0.8958579, z: 0.8958574}
+  m_Children:
+  - {fileID: 232819563070263331}
+  - {fileID: 1189585024479567321}
+  m_Father: {fileID: 9043903863058494264}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &706953178627897311
 GameObject:
   m_ObjectHideFlags: 0
@@ -23,11 +55,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706953178627897311}
-  m_LocalRotation: {x: -0, y: 0.7071057, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 3.8799992, y: 11.58, z: 0.11000013}
-  m_LocalScale: {x: 0.8958574, y: 0.8958579, z: 0.8958574}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -11.318761, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 9043903863058494264}
+  m_Father: {fileID: 7973064465011222378}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1506862976373343374
@@ -39,6 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 232819563070263331}
+  - component: {fileID: 2347938908312414085}
   m_Layer: 0
   m_Name: Plataforma Movil pa arriba y para abajo
   m_TagString: Untagged
@@ -53,16 +86,32 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506862976373343374}
-  m_LocalRotation: {x: -0, y: 0.7071057, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 3.88, y: 21.72, z: 0.11}
-  m_LocalScale: {x: 0.89585763, y: 0.8958579, z: 0.89585763}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3055859877509574704}
   - {fileID: 3060163347458648590}
   - {fileID: 3060163346845221450}
-  m_Father: {fileID: 9043903863058494264}
-  m_RootOrder: 2
+  m_Father: {fileID: 7973064465011222378}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2347938908312414085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506862976373343374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54afbc2fe490f8d4ba25b2201b607bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  target: {fileID: 1189585024479567321}
+  isCarPlatform: 0
+  platformSpawner: {fileID: 0}
 --- !u!1 &3061482897868625682
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,8 +467,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9223106984157614998}
-  - {fileID: 1189585024479567321}
-  - {fileID: 232819563070263331}
+  - {fileID: 7973064465011222378}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -8,15 +8,16 @@ public class PlatformSpawner : MonoBehaviour
     public float maxSpawnRate;
     public float distanceSpawn;
     public float timeToSpawn;
+    float time;
     public Transform platformTarget;
 
     private void Update()
     {
-        timeToSpawn++;
-        if (timeToSpawn > maxSpawnRate)
+        time-=Time.deltaTime;
+        if (time < 0)
         {
             Spawn();
-            timeToSpawn = Random.Range(0, maxSpawnRate - distanceSpawn);
+            time = timeToSpawn;
         }
     }
 
