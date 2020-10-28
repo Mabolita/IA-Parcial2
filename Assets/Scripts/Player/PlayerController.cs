@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private Hack _h;
     private Animator _anim;
     private Vector3 normalHit;
+    private CheckpointController _chc;
 
     private float xSensitivity = 100.0f;
     private float ySensitivity = 100.0f;
@@ -20,8 +21,10 @@ public class PlayerController : MonoBehaviour
     private float xMaxLimit = 360.0f;
     private float yRot = 0.0f;
     private float xRot = 0.0f;
+    private float timeDead;
     private int jumps;
     private bool isOnSlope;
+    private bool dead;
 
 
     [Header("Componentes")]
@@ -32,10 +35,11 @@ public class PlayerController : MonoBehaviour
 
     [Header("Sonidos")]
     public AudioSource audioSource;
-    public AudioClip jumpSound, hackSound, deathSound, dashSound,walkSound;
+    public AudioClip jumpSound, hackSound, deathSound, dashSound, walkSound;
 
     [Header("Variables")]
     public int maxCantJumps;
+    public float maxTimeDead;
     public float jumpForce;
     public float slopeLimit;
     public float slideVelocity;
@@ -54,6 +58,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        _chc = new CheckpointController();
         capsuleCollider = GetComponent<CapsuleCollider>();
         rigidBody = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
@@ -75,6 +80,18 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (dead)
+        {
+            rigidBody.velocity = new Vector3(0, rigidBody.velocity.y, 0);
+            timeDead += Time.deltaTime;
+            if (timeDead >= maxTimeDead)
+            {
+                transform.position = GameManager.Instance.CurrentCheckPoint.position;
+                capsuleCollider.center = new Vector3(0, 2f, 0);
+                dead = false;
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Vector3 check = GameManager.Instance.CurrentCheckPoint.position;
@@ -117,7 +134,7 @@ public class PlayerController : MonoBehaviour
     public void FixMove()
     {
 
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && !dead)
         {
             Move();
         }
